@@ -16,7 +16,9 @@ const NavbarContainer = styled.nav`
   justify-content: space-between;
 `;
 const MenuContainer = styled.div`
-  width: 10%;
+  width: 50%;
+  display: flex;
+  align-items: center;
 `;
 const LoginContainer = styled.div`
   width: 10%;
@@ -36,6 +38,9 @@ const LoginTitle = styled.h3`
     display: none;
   }
 `;
+const LogoContainer = styled.div`
+  margin: 2% 0 2%;
+`;
 
 const Navbar = () => {
   const hidden = useSelector((state) => state.root.menu.hidden);
@@ -52,7 +57,11 @@ const Navbar = () => {
         {hidden && (
           <GrClose style={{ fontSize: "1.2rem" }} onClick={handdlerToggle} />
         )}
+        <LogoContainer>
+          <img src="img/logoTienda.png" alt="Logo tienda" width={"200px"} />
+        </LogoContainer>
       </MenuContainer>
+
       <LoginContainer>
         <GrUserManager
           style={{
