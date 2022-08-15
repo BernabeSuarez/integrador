@@ -3,11 +3,12 @@ import styled from "styled-components";
 import { GrClose, GrMenu, GrUserManager } from "react-icons/gr";
 import { useDispatch, useSelector } from "react-redux";
 import * as menuActions from "../../redux/menu/menuActions";
+import { colorPageDarkBlue } from "../../styles/utilities/colors";
 
 const NavbarContainer = styled.nav`
   width: 100vw;
   height: 60px;
-  background-color: white;
+  background-color: #fafafa;
   padding-left: 1%;
   padding-right: 1%;
   display: flex;
@@ -21,8 +22,13 @@ const LoginContainer = styled.div`
   width: 10%;
   display: flex;
   cursor: pointer;
+  &:hover {
+    color: red;
+  }
 `;
 const LoginTitle = styled.h3`
+  margin-left: 5%;
+  color: ${colorPageDarkBlue};
   &:hover {
     color: red;
   }

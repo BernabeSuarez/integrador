@@ -18,9 +18,9 @@ const Hero = () => {
       </HeroAction>
       <HeroImg>
         <img
-          src="img/heroImg.svg"
+          src="img/HeroShopping.svg"
           alt="foto"
-          style={{ maxWidth: "800px", minWidth: "300px" }}
+          style={{ maxWidth: "400px", minWidth: "200px" }}
         />
       </HeroImg>
     </HeroContainer>
