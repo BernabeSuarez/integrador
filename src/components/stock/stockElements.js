@@ -69,6 +69,7 @@ export const ProductImage = styled.img`
 `;
 export const ProductFooter = styled.div`
   width: 100%;
+  height:50%;
   background-color: #fafafa;
 `;
 export const H2 = styled.h2`
@@ -82,3 +83,8 @@ export const H2 = styled.h2`
   width: 100%;
   z-index: 1;
 `;
+export const Price = styled.h2`
+position: absolute;
+font-size: 1rem;
+
+`

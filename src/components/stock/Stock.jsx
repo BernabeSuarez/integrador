@@ -1,5 +1,6 @@
 import React from "react";
 import { productsItems } from "../../data/data";
+import { formatPrice } from "../../utils/formatPrice";
 import {
   StockStyled,
   StockContain,
@@ -8,6 +9,7 @@ import {
   ProductImage,
   ProductFooter,
   H2,
+  Price,
 } from "./stockElements";
 
 const Stock = () => {
@@ -32,6 +34,7 @@ const Stock = () => {
                 <ProductImage src={item.img} />
                 <ProductFooter>
                   <H2>{item.name}</H2>
+                  <Price>{formatPrice(item.price)}</Price>
                 </ProductFooter>
               </ProductImg>
             </>
