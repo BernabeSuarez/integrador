@@ -1,12 +1,6 @@
 import React from "react";
 import Button from "../button/Button";
-import {
-  HeroContainer,
-  HeroAction,
-  H1,
-  P,
-  HeroImg,
-} from "../../styles/HeroStyles";
+import { HeroContainer, HeroAction, H1, P, HeroImg } from "./HeroElements";
 
 const Hero = () => {
   return (

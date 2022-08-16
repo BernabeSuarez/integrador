@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorPageDarkBlue } from '../styles/utilities/colors'
+import { colorPageDarkBlue } from '../../styles/utilities/colors'
 
 export const HeroContainer = styled.div`
   width: 100%;
