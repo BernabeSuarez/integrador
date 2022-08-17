@@ -16,9 +16,16 @@ export const MenuContainer = styled.div`
   display: flex;
   align-items: center;
 `;
-export const LoginContainer = styled.div`
-  width: 10%;
+export const LinksContainer = styled.div`
+  width: 50%;
   display: flex;
+  align-items: center;
+  justify-content:flex-end;
+`;
+export const LoginContainer = styled.div`
+  width: 50%;
+  display: flex;
+  justify-content:flex-end;
   cursor: pointer;
   &:hover {
     color: red;

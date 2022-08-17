@@ -83,8 +83,9 @@ export const H2 = styled.h2`
   width: 100%;
   z-index: 1;
 `;
-export const Price = styled.h2`
+export const Price = styled.h3`
 position: absolute;
+font-family: "Roboto";
 font-size: 1rem;
 
 `
