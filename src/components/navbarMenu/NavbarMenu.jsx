@@ -11,7 +11,7 @@ const MenuNavContainer = styled.div`
   visibility: ${({ show }) => (show ? `visible` : `hidden`)};
 
   backdrop-filter: blur(1px);
-  z-index: 99;
+  z-index: 999;
 `;
 const MenuNav = styled.div`
   width: 300px;

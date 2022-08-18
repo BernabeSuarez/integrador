@@ -18,20 +18,18 @@ const TagCard = styled.div`
   justify-content: center;
   box-shadow: 0 12px 19px 0 rgba(0, 0, 0, 0.09);
   border-radius: 20px;
+  filter: grayscale(80%);
 
   cursor: pointer;
   &:hover {
+    filter: grayscale(0%);
     background: #e8e8e8;
     box-shadow: none;
   }
 `;
 const TagImg = styled.img`
   width: 100%;
-  transition: 0.5s ease;
-  filter: grayscale(100%);
-  &:hover {
-    filter: grayscale(0%);
-  }
+  transition: 0.2s ease;
 `;
 
 const Title = styled.h3`

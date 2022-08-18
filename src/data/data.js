@@ -85,7 +85,7 @@ export const productsItems = [  //array de objetos de cada producto
 export const ProductsCategories = [
     {
         section: 'Calzado',
-        img: 'img/Calzado.jpg'
+        img: 'img/Botas.jpg'
     },
     {
         section: 'Remeras',

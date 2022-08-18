@@ -12,7 +12,7 @@ import {
   Price,
 } from "./stockElements";
 
-const Stock = () => {
+const Stock = ({ setOpenProduct }) => {
   const productsItems = useSelector((state) => state.root.products.products);
   const dataCard = productsItems.flatMap((item) => [
     {
@@ -32,7 +32,10 @@ const Stock = () => {
           {dataCard.map((item) => (
             <>
               <ProductImg>
-                <ProductImage src={item.img} />
+                <ProductImage
+                  src={item.img}
+                  onClick={() => setOpenProduct(item)}
+                />
                 <ProductFooter>
                   <H2>{item.name}</H2>
                   <Price>{formatPrice(item.price)}</Price>

@@ -6,27 +6,32 @@ import {
   DialogBanner,
   DialogBannerName,
   DialogContent,
-  DialogFooter,
   ConfirmButton,
   DialogShadow,
 } from "./ModalElements";
 
-const Modal = () => {
+const ModalContainer = ({ openProduct, setOpenProduct }) => {
+  const HandlerClose = () => {
+    setOpenProduct();
+  };
   return (
-    <DialogShadow>
+    <DialogShadow onClick={HandlerClose}>
       <Dialog>
-        <DialogBanner>
-          <DialogBannerName>hahdfha</DialogBannerName>
+        <DialogBanner img={openProduct.img}>
+          <DialogBannerName>{openProduct.name}</DialogBannerName>
         </DialogBanner>
         <DialogContent>
-          <p>adfhadfhadfhadfh</p>
+          <p>{openProduct.name}</p>
+          <ConfirmButton>
+            Agregar: {formatPrice(openProduct.price)}
+          </ConfirmButton>
         </DialogContent>
-        <DialogFooter>
-          <ConfirmButton>Agregar: {formatPrice(100)}</ConfirmButton>
-        </DialogFooter>
       </Dialog>
     </DialogShadow>
   );
 };
 
-export default Modal;
+export const Modal = (props) => {
+  if (!props.openProduct) return null;
+  return <ModalContainer {...props} />;
+};

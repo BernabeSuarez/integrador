@@ -2,8 +2,9 @@ import { colorPageBlack } from "../../styles/utilities/colors";
 import styled from "styled-components";
 
 export const NavbarContainer = styled.nav`
+
   width: 100%;
-  height: 60px;
+  height: 70px;
   background-color: ${colorPageBlack};
   padding-left: 1%;
   padding-right: 1%;

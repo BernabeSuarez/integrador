@@ -1,13 +1,12 @@
 import styled from 'styled-components';
-import { colorPageOrange } from '../../styles/utilities/colors'
+import { colorPageBlack } from '../../styles/utilities/colors'
 
 export const Dialog = styled.div`
   width: 500px;
   background-color: white;
-  /* position: fixed; */
-  top: 150px;
+   //position: fixed; 
   z-index: 1000;
-  max-height: calc(100% - 100px);
+  max-height: 100vh;
   left: calc(50% - 250px);
   display: flex;
   flex-direction: column;
@@ -30,10 +29,10 @@ export const DialogBanner = styled.div`
   background-size: cover;
   border-radius: 8px 8px 0px 0px;
   position: relative;
-  min-height: 50%;
+  min-height: 60%;
 `;
 export const Title = styled.div`
-  font-family: 'Montserrat', cursive;
+  font-family: 'Roboto', cursive;
   font-weight: 700;
   z-index: 999;
 `;
@@ -59,18 +58,17 @@ export const DialogBannerName = styled(Label)`
 `;
 
 export const DialogContent = styled.div`
-  overflow: auto;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
   min-height: 100px;
-  max-height: 400px;
+  max-height: 200px; 
   padding: 40px;
-  height: 100%;
+  height: 80%;
 `;
 
-export const DialogFooter = styled.div`
-  box-shadow: 0px -2px 10px 0px gray;
-  display: flex;
-  justify-content: center;
-`;
+
 
 export const ConfirmButton = styled(Title)`
   margin: 10px;
@@ -80,22 +78,24 @@ export const ConfirmButton = styled(Title)`
   padding: 10px;
   width: 200px;
   cursor: pointer;
-  background-color: ${colorPageOrange};
+  background-color: ${colorPageBlack};
   text-align: center;
   &:hover {
     opacity: 0.7;
   }
   &:active {
     opacity: 1;
+    background-color: red;
   }
 `;
 
 export const DialogShadow = styled.div`
   position: fixed;
-  height: calc(100% - 75px);
+  height: 100vh;
   width: 100%;
+  top:0;
   background-color: #000000e6;
-  z-index: 4;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
