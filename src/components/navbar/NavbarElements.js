@@ -1,10 +1,10 @@
-import { colorPageDarkBlue } from "../../styles/utilities/colors";
+import { colorPageBlack } from "../../styles/utilities/colors";
 import styled from "styled-components";
 
 export const NavbarContainer = styled.nav`
   width: 100%;
   height: 60px;
-  background-color: #fafafa;
+  background-color: ${colorPageBlack};
   padding-left: 1%;
   padding-right: 1%;
   display: flex;
@@ -32,8 +32,9 @@ export const LoginContainer = styled.div`
   }
 `;
 export const LoginTitle = styled.h3`
-  margin-left: 5%;
-  color: ${colorPageDarkBlue};
+  margin-left: 1%;
+  margin-right: 10%;
+  color: #fafafa;
   &:hover {
     color: red;
   }
@@ -43,4 +44,28 @@ export const LoginTitle = styled.h3`
 `;
 export const LogoContainer = styled.div`
   margin: 2% 0 2%;
+`;
+
+export const CartIconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+`;
+
+export const ItemCount = styled.div`
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  border-radius: 50%;
+  background-color: red;
+  font-size: 10px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 `;

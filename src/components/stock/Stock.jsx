@@ -1,6 +1,6 @@
 import React from "react";
-import { productsItems } from "../../data/data";
 import { formatPrice } from "../../utils/formatPrice";
+import { useSelector } from "react-redux";
 import {
   StockStyled,
   StockContain,
@@ -13,6 +13,7 @@ import {
 } from "./stockElements";
 
 const Stock = () => {
+  const productsItems = useSelector((state) => state.root.products.products);
   const dataCard = productsItems.flatMap((item) => [
     {
       id: item.id,

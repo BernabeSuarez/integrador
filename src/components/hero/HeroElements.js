@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorPageDarkBlue } from '../../styles/utilities/colors'
+import { colorPageDarkBlue, colorPageGray } from '../../styles/utilities/colors'
 
 export const HeroContainer = styled.div`
   width: 100%;
@@ -14,11 +14,11 @@ export const HeroContainer = styled.div`
 `;
 export const H1 = styled.h1`
   margin: 2%;
-  color: ${colorPageDarkBlue}
+  color: ${colorPageGray}
 `;
 export const P = styled.p`
   margin: 2%;
-  color: ${colorPageDarkBlue}
+  color: ${colorPageGray}
 `;
 
 export const HeroAction = styled.div`

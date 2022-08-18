@@ -1,86 +1,101 @@
 export const productsItems = [  //array de objetos de cada producto
     {
         id: 1,
-        name: 'Borcegos de Cuero',
-        img: 'img/Borcegos-1.jpg',
-        section: 'Borcegos',
+        name: 'Botitas de Lona',
+        img: 'img/Calzado-1.jpg',
+        section: 'Calzado',
         description:
-            'Borcegos de cuero',
-        price: 1000,
+            'Botitas de Lona',
+        price: 14000,
     },
     {
         id: 2,
         name: 'Borcegos de Cuero',
-        img: 'img/Borcegos-2.jpg',
-        section: 'Borcegos',
+        img: 'img/Calzado-2.jpg',
+        section: 'Calzado',
         description:
             'Borcegos de cuero',
-        price: 1500,
+        price: 15000,
     },
     {
         id: 3,
         name: 'Borcegos de Cuero',
-        img: 'img/Borcegos-3.jpg',
-        section: 'Borcegos',
+        img: 'img/Calzado-3.jpg',
+        section: 'Calzado',
         description:
             'Borcegos de cuero',
-        price: 1600,
+        price: 25000,
     },
     {
         id: 4,
-        name: 'Zapatillas',
-        img: 'img/Zapas-1.jpg',
-        section: 'Zapatillas',
+        name: 'Remera Motley Crue',
+        img: 'img/Remera-1.jpg',
+        section: 'Remeras',
         description:
-            'Zapatillas urbanas',
-        price: 1200,
+            'Remeras urbanas',
+        price: 5500,
     },
     {
         id: 5,
-        name: 'Zapatillas',
-        img: 'img/Zapas-2.jpg',
-        section: 'Zapatillas',
+        name: 'Remera Pink Floyd',
+        img: 'img/Remera-2.jpg',
+        section: 'Remeras',
         description:
-            'Zapatillas urbanas',
-        price: 1300,
+            'Remeras urbanas',
+        price: 5500,
     },
     {
         id: 6,
-        name: 'Zapatillas',
-        img: 'img/Zapas-3.jpg',
-        section: 'Zapatillas',
+        name: 'Remera Led Zeppelin',
+        img: 'img/Remera-3.jpg',
+        section: 'Remeras',
         description:
-            'Zapatillas urbanas',
-        price: 1700,
+            'Remeras urbanas',
+        price: 5000,
     },
     {
         id: 7,
-        name: 'Zapatos Mujer',
-        img: 'img/Zapatos-1.jpg',
-        section: 'Zapatos',
+        name: 'Gorra Rolling Stones',
+        img: 'img/Gorra-1.jpg',
+        section: 'Gorras',
         description:
-            'Zapatos',
-        price: 1100,
+            'Gorras',
+        price: 3900,
     },
     {
         id: 8,
-        name: 'Zapatos Mujer',
-        img: 'img/Zapatos-2.jpg',
-        section: 'Zapatos',
+        name: 'Gorra Rolling Stones',
+        img: 'img/Gorra-2.jpg',
+        section: 'Gorras',
         description:
-            'Zapatos',
-        price: 1600,
+            'Gorras',
+        price: 3900,
     },
     {
         id: 9,
-        name: 'Zapatos Mujer',
-        img: 'img/Zapatos-3.jpg',
-        section: 'Zapatos',
+        name: 'Gorra The Who',
+        img: 'img/Gorra-3.jpg',
+        section: 'Gorras',
         description:
-            'Zapatos',
-        price: 1450,
+            'Gorras',
+        price: 3900,
     },
 ];
+
+export const ProductsCategories = [
+    {
+        section: 'Calzado',
+        img: 'img/Calzado.jpg'
+    },
+    {
+        section: 'Remeras',
+        img: 'img/Remeras.jpg'
+    },
+    {
+        section: 'Gorras',
+        img: 'img/Gorras.jpg'
+    }
+]
 
 export const products = productsItems.reduce((res, products) => {
     if (!res[products.section]) { //crea un objeto de cada item de la seccion

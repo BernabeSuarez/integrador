@@ -21,6 +21,7 @@ const CartBody = styled.div`
   width: 500px;
   height: 60vh;
   margin: auto;
+  padding: 1%;
   background-color: #fafafa;
   transform: ${({ show }) => (show ? `scale(1)` : `scale(0)`)};
   transition-property: transform;
@@ -30,6 +31,14 @@ const CartBody = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
+  }
+`;
+const CardTitle = styled.div`
+  width: 100%;
+
+  border-bottom: 1px solid #000;
+  & h3 {
+    text-align: start;
   }
 `;
 
@@ -43,9 +52,12 @@ const Cart = () => {
     <CartContainer show={cartHidden}>
       <CartBody show={cartHidden}>
         <GrClose
-          style={{ fontSize: "2rem", right: "100%" }}
+          style={{ fontSize: "1.3rem", right: "100%" }}
           onClick={closeModal}
         />
+        <CardTitle>
+          <h3>Tu Carrito</h3>
+        </CardTitle>
       </CartBody>
     </CartContainer>
   );
