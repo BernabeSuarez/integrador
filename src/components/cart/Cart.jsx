@@ -14,12 +14,11 @@ const CartContainer = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.35);
   visibility: ${({ show }) => (show ? `visible` : `hidden`)};
-
   backdrop-filter: blur(1px);
   z-index: 99;
 `;
 const CartBody = styled.div`
-  width: 500px;
+  width: 400px;
   height: 60vh;
   margin: auto;
   padding: 1%;
@@ -31,10 +30,10 @@ const CartBody = styled.div`
   border-radius: 15px;
 
   @media (max-width: 768px) {
-    width: 100%;
+    width: 80%;
   }
 `;
-const CardTitle = styled.div`
+export const CardTitle = styled.div`
   width: 100%;
 
   border-bottom: 1px solid #000;

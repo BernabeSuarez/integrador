@@ -7,8 +7,8 @@ const Hero = () => {
     <HeroContainer>
       <HeroAction>
         <H1>Bienvenidos a Tienda Online</H1>
-        <P>donde puedes comprar todo lo que te imaginas</P>
-        <Button>Ir a la Tienda</Button>
+        <P>Envios a todo el pais</P>
+        <Button>Entrar</Button>
       </HeroAction>
       <HeroImg>
         <img

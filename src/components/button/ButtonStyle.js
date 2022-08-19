@@ -8,6 +8,7 @@ export const ButtonStyle = styled.button`
   width: 12rem;
   height: 2.5rem;
   margin: 2%;
+  font-family:"RockSalt";
   background-color: ${colorPageBlack};
   color: ${colorPageWhite};
   border: none;

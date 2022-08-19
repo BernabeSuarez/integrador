@@ -25,7 +25,7 @@ const App = () => {
       <Menu />
       <Banner>
         <img src="img/logoTiendaInvert.png" alt="Logo Black" />
-        <p>No te quedes a pata de las Promociones</p>
+        <p>Donde el Rock se viste...</p>
       </Banner>
 
       <Stock {...openProduct} />

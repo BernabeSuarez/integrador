@@ -44,6 +44,8 @@ width:90%;
   }
 
   & p {
+    font-family:"RockSalt";
+    font-weight:500;
     color: black;
     text-align: center;
     font-size: clamp(1.5rem, 2vw, 3rem);
@@ -51,7 +53,7 @@ width:90%;
     margin: 5px 2px 0;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    padding: 20px;
+    padding: 10px;
     @media (max-width: 768px) {
     display: none;
   }

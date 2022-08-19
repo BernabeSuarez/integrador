@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colorPageGray } from '../../styles/utilities/colors'
+import { colorPageBlack } from '../../styles/utilities/colors'
 
 export const HeroContainer = styled.div`
   width: 100%;
@@ -13,12 +13,14 @@ export const HeroContainer = styled.div`
   }
 `;
 export const H1 = styled.h1`
+font-family: "RockSalt";
   margin: 2%;
-  color: ${colorPageGray}
+  color: ${colorPageBlack}
 `;
 export const P = styled.p`
+font-family: "RockSalt";
   margin: 2%;
-  color: ${colorPageGray}
+  color: ${colorPageBlack}
 `;
 
 export const HeroAction = styled.div`
