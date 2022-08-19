@@ -12,9 +12,13 @@ const Hero = () => {
       </HeroAction>
       <HeroImg>
         <img
-          src="img/HeroShopping.svg"
+          src="img/HeroImgHand.jpg"
           alt="foto"
-          style={{ maxWidth: "400px", minWidth: "200px" }}
+          style={{
+            maxWidth: "500px",
+            minWidth: "300px",
+            mixBlendMode: "multiply",
+          }}
         />
       </HeroImg>
     </HeroContainer>

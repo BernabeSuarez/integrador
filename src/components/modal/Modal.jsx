@@ -1,5 +1,7 @@
 import React from "react";
 import { formatPrice } from "../../utils/formatPrice";
+import { useDispatch } from "react-redux";
+import * as cartActions from "../../redux/carro/cart-actions";
 
 import {
   Dialog,
@@ -11,9 +13,17 @@ import {
 } from "./ModalElements";
 
 const ModalContainer = ({ openProduct, setOpenProduct }) => {
+  const dispatch = useDispatch();
+
+  const AddCart = () => {
+    dispatch(cartActions.addItem(openProduct));
+    setOpenProduct();
+  };
+
   const HandlerClose = () => {
     setOpenProduct();
   };
+
   return (
     <DialogShadow onClick={HandlerClose}>
       <Dialog>
@@ -22,7 +32,7 @@ const ModalContainer = ({ openProduct, setOpenProduct }) => {
         </DialogBanner>
         <DialogContent>
           <p>{openProduct.name}</p>
-          <ConfirmButton>
+          <ConfirmButton onClick={AddCart}>
             Agregar: {formatPrice(openProduct.price)}
           </ConfirmButton>
         </DialogContent>

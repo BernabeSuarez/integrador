@@ -19,6 +19,12 @@ const Navbar = () => {
   const fontStyles = { color: "white", fontSize: "1.4rem" };
 
   const hidden = useSelector((state) => state.root.menu.hidden);
+  const quantity = useSelector((state) =>
+    state.root.cart.cartItems.reduce(
+      (previousValue, cartItem) => previousValue + cartItem.quantity,
+      0
+    )
+  );
 
   const dispatch = useDispatch();
   const handdlerToggle = () => {
@@ -46,7 +52,7 @@ const Navbar = () => {
         <CartIconContainer>
           <IoCartOutline style={fontStyles} onClick={cartToggle} />
 
-          <ItemCount>0</ItemCount>
+          <ItemCount>{quantity}</ItemCount>
         </CartIconContainer>
       </LinksContainer>
     </NavbarContainer>

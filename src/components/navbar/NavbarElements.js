@@ -1,4 +1,4 @@
-import { colorPageBlack } from "../../styles/utilities/colors";
+import { colorPageBlack, colorPageGray } from "../../styles/utilities/colors";
 import styled from "styled-components";
 
 export const NavbarContainer = styled.nav`
@@ -6,8 +6,8 @@ export const NavbarContainer = styled.nav`
   width: 100%;
   height: 70px;
   background-color: ${colorPageBlack};
-  padding-left: 1%;
-  padding-right: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,7 +60,7 @@ export const ItemCount = styled.div`
   top: -10px;
   right: -10px;
   border-radius: 50%;
-  background-color: red;
+  background-color: ${colorPageGray};
   font-size: 10px;
   font-weight: bold;
   width: 20px;

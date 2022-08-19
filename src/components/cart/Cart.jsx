@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { GrClose } from "react-icons/gr";
 import * as cartActions from "../../redux/carro/cart-actions";
+import CartItems from "./CartItems";
 
 const CartContainer = styled.div`
   position: fixed;
@@ -58,6 +59,7 @@ const Cart = () => {
         <CardTitle>
           <h3>Tu Carrito</h3>
         </CardTitle>
+        <CartItems />
       </CartBody>
     </CartContainer>
   );

@@ -1,27 +1,29 @@
 import React from "react";
 import { Banner } from "./components/banner/banner";
-import Cart from "./components/cart/Cart";
 import Hero from "./components/hero/Hero";
 import Menu from "./components/Menu/Menu";
 import { Modal } from "./components/modal/Modal";
+
 import Navbar from "./components/navbar/Navbar";
 import NavbarMenu from "./components/navbarMenu/NavbarMenu";
 import Stock from "./components/stock/Stock";
 import { useOpenProduct } from "./hooks/useOpenProduct";
+import { useCompra } from "./hooks/useCompra";
 
 const App = () => {
   const openProduct = useOpenProduct();
+  const compra = useCompra();
 
   return (
     <div className="App">
       <Navbar />
-      <Modal {...openProduct} />
+      <Modal {...openProduct} {...compra} />
       <NavbarMenu />
-      <Cart />
+
       <Hero />
       <Menu />
       <Banner>
-        <h2>Ofertas del mes</h2>
+        <img src="img/logoTiendaInvert.png" alt="Logo Black" />
         <p>No te quedes a pata de las Promociones</p>
       </Banner>
 

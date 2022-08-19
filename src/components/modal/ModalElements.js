@@ -14,6 +14,7 @@ export const Dialog = styled.div`
   height: 50%;
   justify-content: space-between;
 
+
   @media screen and (max-width: 550px) {
     max-width: 94%;
     left: 3%;
@@ -30,6 +31,7 @@ export const DialogBanner = styled.div`
   border-radius: 8px 8px 0px 0px;
   position: relative;
   min-height: 60%;
+
 `;
 export const Title = styled.div`
   font-family: 'Roboto', cursive;
@@ -70,13 +72,13 @@ export const DialogContent = styled.div`
 
 
 
-export const ConfirmButton = styled(Title)`
+export const ConfirmButton = styled.button`
   margin: 10px;
   color: white;
   height: auto;
   border-radius: 8px;
   padding: 10px;
-  width: 200px;
+  width: 12rem;
   cursor: pointer;
   background-color: ${colorPageBlack};
   text-align: center;

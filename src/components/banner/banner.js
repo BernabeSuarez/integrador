@@ -13,7 +13,7 @@ width:90%;
   background-position: center;
   background-size: cover;
   background-repeat: space;
-  filter: contrast(100%);
+  filter: contrast(80%);
   color: #fff;
   position: relative;
   border-radius:15px;
@@ -35,21 +35,25 @@ width:90%;
     z-index: 2;
   }
 
-  & h2 {
-    font-family:"WorkSans";
-    text-transform: uppercase;
-    margin: 0 20px;
-    text-align: center;
-    font-size: clamp(2rem, 4vw, 4rem);
+  & img {
+    width:40%;
+    filter: drop-shadow(5px 8px 1.2px #fafafa);
+    @media (max-width: 768px) {
+    width:80%
+  }
   }
 
   & p {
+    color: black;
     text-align: center;
     font-size: clamp(1.5rem, 2vw, 3rem);
     width: 100%;
-    margin: 50px 20px 0;
-    border-top: 1px solid #fafafa;
-    border-bottom: 1px solid #fafafa;
+    margin: 5px 2px 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     padding: 20px;
+    @media (max-width: 768px) {
+    display: none;
+  }
   }
 `;
