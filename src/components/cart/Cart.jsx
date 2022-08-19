@@ -8,12 +8,11 @@ import CartItems from "./CartItems";
 const CartContainer = styled.div`
   position: fixed;
   width: 100%;
-  height: calc(100vh - 70px);
-  top: 70px;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.35);
   visibility: ${({ show }) => (show ? `visible` : `hidden`)};
   backdrop-filter: blur(1px);
-  z-index: 99;
+  z-index: 999;
 `;
 const CartBody = styled.div`
   width: 300px;
@@ -32,6 +31,9 @@ const CartBody = styled.div`
 `;
 export const CardTitle = styled.div`
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   border-bottom: 1px solid #000;
   & h3 {
@@ -48,12 +50,12 @@ const Cart = () => {
   return (
     <CartContainer show={cartHidden}>
       <CartBody show={cartHidden}>
-        <GrClose
-          style={{ fontSize: "1.3rem", right: "100%" }}
-          onClick={closeModal}
-        />
         <CardTitle>
           <h3>Tu Carrito</h3>
+          <GrClose
+            style={{ fontSize: "1.3rem", right: "100%" }}
+            onClick={closeModal}
+          />
         </CardTitle>
         <CartItems />
       </CartBody>

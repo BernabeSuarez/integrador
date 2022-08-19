@@ -10,6 +10,14 @@ export const CarroContent = styled(DialogContent)`
   
 `;
 
+export const EmptyCart = styled(DialogContent)`
+width: 100%;
+min-height:50%;
+  z-index:350;
+  border: 1px solid black;
+  border-radius: 20px;
+`
+
 export const CartProducts = styled.div`
 width:100%;
 height:100%;

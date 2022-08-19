@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { colorPageWhite } from "../../styles/utilities/colors";
 
 const MenuNavContainer = styled.div`
   position: fixed;

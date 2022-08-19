@@ -7,6 +7,7 @@ import {
   ItemImg,
   CartFooter,
   CartProducts,
+  EmptyCart,
 } from "./CartItemsElements";
 import { ConfirmButton } from "../modal/ModalElements";
 import { QuantityManage } from "./QuantitySection";
@@ -18,7 +19,10 @@ const CartItems = () => {
     <>
       <CarroContent>
         {cartItems.length === 0 ? (
-          <CarroContent>Aun no has comprado nada...</CarroContent>
+          <EmptyCart>
+            <img src="img/Empty-cart.png" alt="" style={{ width: "180px" }} />
+            <h5>Nada por aqui...</h5>
+          </EmptyCart>
         ) : (
           <CarroContent>
             <CartProducts>
