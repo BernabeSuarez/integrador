@@ -6,15 +6,15 @@ export const NavbarContainer = styled.nav`
   width: 100%;
   height: 70px;
   background-color: ${colorPageBlack};
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 4%;
+  padding-right: 4%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index:999;
 `;
 export const MenuContainer = styled.div`
-  width: 50%;
+  width: 30%;
   display: flex;
   align-items: center;
 `;
@@ -46,6 +46,10 @@ export const LoginTitle = styled.h3`
 `;
 export const LogoContainer = styled.div`
   margin: 2% 0 2%;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const CartIconContainer = styled.div`

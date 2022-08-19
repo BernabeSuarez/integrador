@@ -26,7 +26,8 @@ const CartBody = styled.div`
   z-index: 250;
 
   @media (max-width: 768px) {
-    width: 80%;
+    width: 100%;
+    margin-left: 0;
   }
 `;
 export const CardTitle = styled.div`
