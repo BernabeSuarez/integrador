@@ -4,41 +4,27 @@ import { DialogContent } from "../modal/ModalElements";
 
 export const CarroContent = styled(DialogContent)`
 
-  padding:2%;
   max-height: 100%;
   height: 100%;
+  z-index:350;
   
 `;
 
 export const CartProducts = styled.div`
 width:100%;
-height:60%;
+height:100%;
 overflow-y:scroll;
-&::-webkit-scrollbar {
-  width: 9px;
-  background-color: #fafafa;
-}
-&::-webkit-scrollbar-thumb {
-  background: #3f3f41;
-  border-radius: 15px;
-}
-
-&::-webkit-scrollbar-thumb:hover {
-  background: #6a6a6d;
-}
-
 `
 
 export const CarroContainer = styled.div`
   width:100%;
-  padding: 10px 10px;
   border-bottom: 1px solid #f7f7f7;
   
 
 `;
 
 export const CarroItem = styled.div`
-  padding: 5px ;
+  padding: 2px ;
   display: grid;
   grid-template-columns: 20%  40% 40%;
   justify-content: space-around;

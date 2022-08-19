@@ -6,7 +6,7 @@ import { colorPageWhite } from "../../styles/utilities/colors";
 const MenuNavContainer = styled.div`
   position: fixed;
   width: 100%;
-  height: calc(100% - 70px);
+  top: 70px;
   background-color: rgba(0, 0, 0, 0.35);
   visibility: ${({ show }) => (show ? `visible` : `hidden`)};
 
@@ -16,7 +16,7 @@ const MenuNavContainer = styled.div`
 const MenuNav = styled.div`
   width: 300px;
   height: 100vh;
-  background-color: ${colorPageWhite};
+  background-color: antiquewhite;
   transform: ${({ show }) => (show ? `translateX(0)` : `translateX(-100%)`)};
   transition-property: transform;
   transition-duration: 0.8s;

@@ -2,7 +2,7 @@ import { colorPageBlack, colorPageGray } from "../../styles/utilities/colors";
 import styled from "styled-components";
 
 export const NavbarContainer = styled.nav`
-
+ position: fixed;
   width: 100%;
   height: 70px;
   background-color: ${colorPageBlack};
@@ -11,6 +11,7 @@ export const NavbarContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index:999;
 `;
 export const MenuContainer = styled.div`
   width: 50%;

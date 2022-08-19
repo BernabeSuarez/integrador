@@ -8,9 +8,10 @@ export const ButtonStyle = styled.button`
   width: 12rem;
   height: 2.5rem;
   margin: 2%;
-  font-family:"RockSalt";
+  font-family:"WorkSans";
+  font-size:1.1rem;
   background-color: ${colorPageBlack};
-  color: ${colorPageWhite};
+  color: antiquewhite;
   border: none;
   border-radius: 5px;
   &:hover {

@@ -8,26 +8,23 @@ import CartItems from "./CartItems";
 const CartContainer = styled.div`
   position: fixed;
   width: 100%;
-  height: calc(100% - 70px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: calc(100vh - 70px);
+  top: 70px;
   background-color: rgba(0, 0, 0, 0.35);
   visibility: ${({ show }) => (show ? `visible` : `hidden`)};
   backdrop-filter: blur(1px);
   z-index: 99;
 `;
 const CartBody = styled.div`
-  width: 400px;
-  height: 60vh;
-  margin: auto;
+  width: 300px;
+  height: 100%;
+  margin-left: calc(100% - 300px);
   padding: 1%;
   background-color: #fafafa;
-  transform: ${({ show }) => (show ? `scale(1)` : `scale(0)`)};
+  transform: ${({ show }) => (show ? `translateX(0)` : `translateX(100%)`)};
   transition-property: transform;
   transition-duration: 0.8s;
   z-index: 250;
-  border-radius: 15px;
 
   @media (max-width: 768px) {
     width: 80%;
