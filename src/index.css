@@ -23,3 +23,16 @@ body {
 body h1 {
   font-family: "WorkSans";
 }
+
+body::-webkit-scrollbar {
+  width: 9px;
+  background-color: #fafafa;
+}
+body::-webkit-scrollbar-thumb {
+  background: #3f3f41;
+  border-radius: 15px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #6a6a6d;
+}

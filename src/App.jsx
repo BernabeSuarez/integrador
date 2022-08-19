@@ -9,6 +9,7 @@ import NavbarMenu from "./components/navbarMenu/NavbarMenu";
 import Stock from "./components/stock/Stock";
 import { useOpenProduct } from "./hooks/useOpenProduct";
 import { useCompra } from "./hooks/useCompra";
+import Cart from "./components/cart/Cart";
 
 const App = () => {
   const openProduct = useOpenProduct();
@@ -19,7 +20,7 @@ const App = () => {
       <Navbar />
       <Modal {...openProduct} {...compra} />
       <NavbarMenu />
-
+      <Cart />
       <Hero />
       <Menu />
       <Banner>
