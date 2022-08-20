@@ -3,7 +3,7 @@ import { Banner } from "./components/banner/banner";
 import Hero from "./components/hero/Hero";
 import Menu from "./components/Menu/Menu";
 import { Modal } from "./components/modal/Modal";
-
+import Logo from "./assets/LogoTiendaInvert.png";
 import Navbar from "./components/navbar/Navbar";
 import NavbarMenu from "./components/navbarMenu/NavbarMenu";
 import Stock from "./components/stock/Stock";
@@ -24,7 +24,7 @@ const App = () => {
       <Hero />
       <Menu />
       <Banner>
-        <img src="img/logoTiendaInvert.png" alt="Logo Black" />
+        <img src={Logo} alt="Logo Black" />
         <p>Donde el Rock se viste...</p>
       </Banner>
 

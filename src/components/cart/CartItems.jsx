@@ -1,5 +1,6 @@
 import React from "react";
 import { formatPrice } from "../../utils/formatPrice";
+import Empty from "../../assets/Empty-cart.PNG";
 import {
   CarroContent,
   CarroContainer,
@@ -20,7 +21,7 @@ const CartItems = () => {
       <CarroContent>
         {cartItems.length === 0 ? (
           <EmptyCart>
-            <img src="img/Empty-cart.png" alt="" style={{ width: "180px" }} />
+            <img src={Empty} alt="" style={{ width: "180px" }} />
             <h5>Nada por aqui...</h5>
           </EmptyCart>
         ) : (
