@@ -9,6 +9,11 @@ const MenuContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media screen and (max-width: 700px) {
+    padding: 2%;
+    flex-direction: column;
+    height: 100%;
+  }
 `;
 const TagCard = styled.div`
   width: 30%;
@@ -25,6 +30,12 @@ const TagCard = styled.div`
     filter: grayscale(0%);
     background: #e8e8e8;
     box-shadow: none;
+  }
+  @media screen and (max-width: 700px) {
+    width: 80%;
+    max-height: 100%;
+    margin-top: 1%;
+    margin-bottom: 1%;
   }
 `;
 const TagImg = styled.img`
