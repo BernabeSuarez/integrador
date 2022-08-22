@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdDelete } from "react-icons/md";
+import { RiDeleteBin2Line } from "react-icons/ri";
 import styled from 'styled-components';
 import { colorPageOrange } from '../../styles/utilities/colors';
 import RemoveIcon from '../../assets/delete-full.svg';
@@ -17,7 +17,7 @@ const QuantityManageStyled = styled.h3`
   margin: 5px;
   height: 32px;
   padding: 10px;
-  box-shadow: 0 6px 10px 0 rgba(128, 98, 96, 0.16);
+  box-shadow:  7px 4px 12px -2px rgba(0,0,0,0.45);
 `;
 
 const QuantityStyled = styled.span`
@@ -39,33 +39,36 @@ const QuantityButton = styled.div`
   }
 `;
 
-const RemoveIconStyled = styled(MdDelete)`
-  width: 17px !important;
-  height: 17px !important;
+const RemoveIconStyled = styled(RiDeleteBin2Line)`
+  width: 34px !important;
+  height: 34px !important;
   cursor: pointer;
   margin: 0 10px;
-  color: red;
+  color: orangered;
+  &:hover{
+    color: red;
+  }
 `;
 
 export const QuantityManage = ({ item }) => {
-    const dispatch = useDispatch();
-    return (
-        <QuantityManageStyled>
-            {+item.quantity === 1 ? (
-                <RemoveIconStyled
-                    src={RemoveIcon}
-                    onClick={() => dispatch(cartActions.removeItem(item))}
-                />
-            ) : (
-                <QuantityButton onClick={() => dispatch(cartActions.removeItem(item))}>
-                    -
-                </QuantityButton>
-            )}
-            <QuantityStyled>{item.quantity}</QuantityStyled>
+  const dispatch = useDispatch();
+  return (
+    <QuantityManageStyled>
+      {+item.quantity === 1 ? (
+        <RemoveIconStyled
+          src={RemoveIcon}
+          onClick={() => dispatch(cartActions.removeItem(item))}
+        />
+      ) : (
+        <QuantityButton onClick={() => dispatch(cartActions.removeItem(item))}>
+          -
+        </QuantityButton>
+      )}
+      <QuantityStyled>{item.quantity}</QuantityStyled>
 
-            <QuantityButton onClick={() => dispatch(cartActions.addItem(item))}>
-                +
-            </QuantityButton>
-        </QuantityManageStyled>
-    );
+      <QuantityButton onClick={() => dispatch(cartActions.addItem(item))}>
+        +
+      </QuantityButton>
+    </QuantityManageStyled>
+  );
 };
