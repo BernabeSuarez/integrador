@@ -11,7 +11,6 @@ export const CarroContent = styled.div`
   margin-top:3px;
   margin-bottom: 2px;
   padding: 5px 5px 10px 5px;
-  height: 100%;
   max-height: 100%;
   z-index:350;
 `;

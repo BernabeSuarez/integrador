@@ -4,6 +4,7 @@ import { MdOutlinePersonOutline } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import * as menuActions from "../../redux/menu/menuActions";
 import * as cartActions from "../../redux/carro/cart-actions";
+import { Link } from "react-router-dom";
 import {
   NavbarContainer,
   MenuContainer,
@@ -41,7 +42,9 @@ const Navbar = () => {
           <IoCloseOutline style={fontStyles} onClick={handdlerToggle} />
         )}
         <LogoContainer>
-          <img src="img/logoTienda.png" alt="Logo tienda" width={"200px"} />
+          <Link to="home">
+            <img src="img/logoTienda.png" alt="Logo tienda" width={"200px"} />
+          </Link>
         </LogoContainer>
       </MenuContainer>
       <LinksContainer>

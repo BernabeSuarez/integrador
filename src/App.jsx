@@ -10,29 +10,34 @@ import Stock from "./components/stock/Stock";
 import { useOpenProduct } from "./hooks/useOpenProduct";
 import { useCompra } from "./hooks/useCompra";
 import Cart from "./components/cart/Cart";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 const App = () => {
   const openProduct = useOpenProduct();
   const compra = useCompra();
 
   return (
-    <div className="App">
-      <Navbar />
-      <Modal {...openProduct} {...compra} />
-      <NavbarMenu />
-      <Cart />
-      <Hero />
-      <Menu />
-      <Banner>
-        <img src={Logo} alt="Logo Black" />
-        <p>Donde el Rock se viste...</p>
-      </Banner>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <Modal {...openProduct} {...compra} />
+        <NavbarMenu />
+        <Cart />
+        <Routes>
+          <Route index element={<Hero />} />
+          <Route path="home" element={<Home />} />
+          <Route path="menu" element={<Menu />} />
+          <Route path="stock" element={<Stock {...openProduct} />} />
+        </Routes>
+        <Banner>
+          <img src={Logo} alt="Logo Black" />
+          <p>Donde el Rock se viste...</p>
+        </Banner>
 
-      <Stock {...openProduct} />
-
-      <h1>Integrador React</h1>
-      <p>Usar Redux - Styled-components - Firebase</p>
-    </div>
+        <h1>Integrador React</h1>
+        <p>Usar Redux - Styled-components - Firebase</p>
+      </div>
+    </BrowserRouter>
   );
 };
 

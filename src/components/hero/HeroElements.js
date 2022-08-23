@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const HeroContainer = styled.div`
+position: fixed;
   width: 100%;
   min-height: 100vh;
   padding: 5%;
@@ -10,6 +11,7 @@ export const HeroContainer = styled.div`
   background-image: url('img/HeroBack2.jpg');
   background-size: cover;
   filter:contrast(85%);
+  z-index:999;
 
   
   @media (max-width: 768px) {
