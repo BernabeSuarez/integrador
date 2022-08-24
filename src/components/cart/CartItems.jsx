@@ -15,6 +15,12 @@ import { QuantityManage } from "./QuantitySection";
 import { useSelector } from "react-redux";
 
 const CartItems = () => {
+  const totalItems = useSelector((state) =>
+    state.root.cart.cartItems.reduce(
+      (acc, cartItem) => acc + cartItem.price * cartItem.quantity,
+      0
+    )
+  );
   const cartItems = useSelector((state) => state.root.cart.cartItems);
   return (
     <>
@@ -47,6 +53,16 @@ const CartItems = () => {
               </CarroContent>
             </CartProducts>
             <CartFooter>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                }}
+              >
+                <h4>Total :</h4>
+                <h4>{formatPrice(totalItems)}</h4>
+              </div>
               <ConfirmButton>Confirmar Compra</ConfirmButton>
             </CartFooter>
           </CarroContent>
