@@ -57,7 +57,7 @@ const CartItems = () => {
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  justifyContent: "center",
+                  justifyContent: "space-between",
                 }}
               >
                 <h4>Total :</h4>
