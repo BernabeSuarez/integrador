@@ -5,6 +5,7 @@ export const StockStyled = styled.div`
   height: auto;
   z-index: 3;
   display: flex;
+  flex-direction:column;
   justify-content: center;
   align-items: center;
   padding: 50px 0;
@@ -88,4 +89,34 @@ position: absolute;
 font-family: "Roboto";
 font-size: 1rem;
 
-`
+`;
+export const SelectContainer = styled.div`
+  width:25%;
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: auto;
+  }
+`;
+export const Selectmenu = styled.select`
+ height: 3rem;
+ border: none;
+ margin-top:2rem;
+ border-bottom: 1px solid black;
+ background-color: transparent;
+ font-family:"WorkSalt";
+ font-size:1.5rem;
+& option{
+	background-color: #DBDBDB;
+  border: none;
+   
+}
+&:focus-within {
+   border: none;
+}
+@media (max-width: 768px) {
+    width: 100%;
+    font-size:1rem;
+  }
+
+`;
+

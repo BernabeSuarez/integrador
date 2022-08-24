@@ -6,12 +6,12 @@ import { Modal } from "./components/modal/Modal";
 import Logo from "./assets/LogoTiendaInvert.png";
 import Navbar from "./components/navbar/Navbar";
 import NavbarMenu from "./components/navbarMenu/NavbarMenu";
-import Stock from "./components/stock/Stock";
 import { useOpenProduct } from "./hooks/useOpenProduct";
 import { useCompra } from "./hooks/useCompra";
 import Cart from "./components/cart/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Catalogo from "./pages/Catalogo";
 const App = () => {
   const openProduct = useOpenProduct();
   const compra = useCompra();
@@ -27,15 +27,15 @@ const App = () => {
           <Route index element={<Hero />} />
           <Route path="home" element={<Home />} />
           <Route path="menu" element={<Menu />} />
-          <Route path="stock" element={<Stock {...openProduct} />} />
+          <Route path="catalogo" element={<Catalogo {...openProduct} />} />
         </Routes>
-        <Banner>
+        {/* <Banner>
           <img src={Logo} alt="Logo Black" />
           <p>Donde el Rock se viste...</p>
-        </Banner>
+  </Banner>*/}
 
         <h1>Integrador React</h1>
-        <p>Usar Redux - Styled-components - Firebase</p>
+        <p>Ejercicio Integrador del modulo REACT 2022</p>
       </div>
     </BrowserRouter>
   );
