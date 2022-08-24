@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <>
       <HomeContainer>
-        <Link to="/stock">
+        <Link to="/catalogo">
           <Button>Empezar A Comprar</Button>
         </Link>
       </HomeContainer>

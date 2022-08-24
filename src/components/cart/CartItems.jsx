@@ -47,7 +47,7 @@ const CartItems = () => {
               </CarroContent>
             </CartProducts>
             <CartFooter>
-              <ConfirmButton>Pagar</ConfirmButton>
+              <ConfirmButton>Confirmar Compra</ConfirmButton>
             </CartFooter>
           </CarroContent>
         )}
