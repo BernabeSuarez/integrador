@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Banner = styled.div`
-width:90%;
-  height: 40vh;
-  margin:auto;
+width: 900px;
+  height: 30vh;
+  //margin: 25% auto 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,7 @@ width:90%;
   background-size: contain;
   background-repeat: round;
   transition:0.5s;
-  filter: contrast(90%);
+  filter: contrast(75%);
   color: #fff;
   position: relative;
   border-radius:15px;
@@ -48,7 +48,7 @@ width:90%;
   }
 
   & img {
-    width:50%;
+    width:100%;
     filter: drop-shadow(5px 8px 1.2px #fafafa);
     @media (max-width: 768px) {
     width:80%

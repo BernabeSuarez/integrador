@@ -50,8 +50,11 @@ const Navbar = () => {
       <LinksContainer>
         <LoginContainer>
           <MdOutlinePersonOutline style={fontStyles} />
-          <LoginTitle>Ingresar</LoginTitle>
+          <Link to="login">
+            <LoginTitle>Ingresar</LoginTitle>
+          </Link>
         </LoginContainer>
+
         <CartIconContainer>
           <IoCartOutline style={fontStyles} onClick={cartToggle} />
 

@@ -27,6 +27,7 @@ export const LinksContainer = styled.div`
 export const LoginContainer = styled.div`
   width: 50%;
   display: flex;
+  margin-right: 2rem;
   justify-content:flex-end;
   cursor: pointer;
   &:hover {

@@ -11,6 +11,7 @@ import { useCompra } from "./hooks/useCompra";
 import Cart from "./components/cart/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import Catalogo from "./pages/Catalogo";
 const App = () => {
   const openProduct = useOpenProduct();
@@ -26,7 +27,7 @@ const App = () => {
         <Routes>
           <Route index element={<Hero />} />
           <Route path="home" element={<Home />} />
-          <Route path="menu" element={<Menu />} />
+          <Route path="login" element={<Login />} />
           <Route path="catalogo" element={<Catalogo {...openProduct} />} />
         </Routes>
         {/* <Banner>

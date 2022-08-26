@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../components/button/Button";
+import { Banner } from "../components/banner/banner";
+import Logo from "../assets/LogoTiendaInvert.png";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -31,6 +33,9 @@ const Home = () => {
     <>
       <HomeContainer>
         <Link to="/catalogo">
+          <Banner>
+            <img src={Logo} alt="Logo Black" />
+          </Banner>
           <Button>Empezar A Comprar</Button>
         </Link>
       </HomeContainer>
