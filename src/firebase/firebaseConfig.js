@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { GoogleAuthProvider, getAuth, signInWithPopup, } from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 
 
 
@@ -40,6 +40,7 @@ export const LoginWhitGoogle = () => {  //Autenticar usuario con Google
         });
 
 }
+
 
 
 

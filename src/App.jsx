@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Catalogo from "./pages/Catalogo";
+import Register from "./pages/Register";
 const App = () => {
   const openProduct = useOpenProduct();
   const compra = useCompra();
@@ -28,6 +29,7 @@ const App = () => {
           <Route index element={<Hero />} />
           <Route path="home" element={<Home />} />
           <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
           <Route path="catalogo" element={<Catalogo {...openProduct} />} />
         </Routes>
         {/* <Banner>
