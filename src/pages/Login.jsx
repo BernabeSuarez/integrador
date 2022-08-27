@@ -21,12 +21,13 @@ export const FormContainer = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   border-radius: 20px;
   background-color: white;
   @media (max-width: 768px) {
     width: 90%;
+    padding: 5px;
   }
 `;
 
@@ -39,11 +40,18 @@ export const Input = styled.input`
   background-color: #c7c3c3;
   border-radius: 4px;
   box-sizing: border-box;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 const GoogleButton = styled(Button)`
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    margin: auto;
+  }
 `;
 const GoogleIcon = styled(FcGoogle)`
   width: 30px;
@@ -54,6 +62,10 @@ export const ButtonContainer = styled.div`
   margin: 5% 0;
   display: flex;
   flex-direction: row;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 export const Divider = styled.div`
   display: inline-block;

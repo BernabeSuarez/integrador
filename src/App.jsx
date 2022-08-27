@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Catalogo from "./pages/Catalogo";
 import Register from "./pages/Register";
+import NewsLetter from "./components/newsletter/NewsLetter";
 const App = () => {
   const openProduct = useOpenProduct();
   const compra = useCompra();
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="register" element={<Register />} />
           <Route path="catalogo" element={<Catalogo {...openProduct} />} />
         </Routes>
+        <NewsLetter />
 
         <h1>Integrador React</h1>
         <p>Ejercicio Integrador del modulo REACT 2022</p>
