@@ -4,7 +4,7 @@ import { auth, LoginWhitGoogle } from "../firebase/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Button from "../components/button/Button";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const LoginContainer = styled.div`
   width: 100%;
@@ -66,13 +66,20 @@ export const Divider = styled.div`
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const Login = async () => {
+  const navigate = useNavigate();
+
+  const LoginUser = async () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       console.log(user);
+      navigate("/catalogo");
     } catch (error) {
       console.log(error.message);
     }
+  };
+  const GoogleLog = () => {
+    LoginWhitGoogle();
+    navigate("/catalogo");
   };
 
   return (
@@ -84,7 +91,7 @@ const Login = () => {
           <label>
             Email
             <Input
-              type="text"
+              type="email"
               placeholder="Email"
               onChange={(event) => setEmail(event.target.value)}
             />
@@ -99,8 +106,8 @@ const Login = () => {
           </label>
           <Divider />
           <ButtonContainer>
-            <Button onClick={Login}>Ingresar</Button>
-            <GoogleButton onClick={LoginWhitGoogle}>
+            <Button onClick={LoginUser}>Ingresar</Button>
+            <GoogleButton onClick={GoogleLog}>
               <GoogleIcon />
             </GoogleButton>
           </ButtonContainer>

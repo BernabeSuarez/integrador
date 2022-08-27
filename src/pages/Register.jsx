@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { LoginContainer, FormContainer, Divider, Input } from "./Login";
 import Button from "../components/button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebaseConfig";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
@@ -13,6 +14,7 @@ const Register = () => {
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
       console.log(user);
+      navigate("/login");
     } catch (error) {
       console.log(error.message);
     }

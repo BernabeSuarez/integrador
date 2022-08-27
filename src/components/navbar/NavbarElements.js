@@ -25,10 +25,12 @@ export const LinksContainer = styled.div`
   justify-content:flex-end;
 `;
 export const LoginContainer = styled.div`
-  width: 50%;
+  width: 70%;
   display: flex;
-  margin-right: 2rem;
-  justify-content:flex-end;
+  margin-right: 0.5rem;
+  justify-content: end;
+  align-items: center;
+  color: white;
   cursor: pointer;
   &:hover {
     color: red;
@@ -76,3 +78,12 @@ export const ItemCount = styled.div`
   align-items: center;
   color: white;
 `;
+
+export const UserContainer = styled.div`
+ width: 50%;
+ padding: 5%;
+ display: flex;
+ flex: row;
+ justify-content:space-evenly;
+  
+`
