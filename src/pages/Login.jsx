@@ -18,19 +18,22 @@ export const FormContainer = styled.div`
   width: 450px;
   height: 450px;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   border-radius: 20px;
   background-color: white;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 export const Input = styled.input`
   width: 100%;
   padding: 12px 20px;
-  margin: 5% 0;
+  margin: 2% 0;
   display: inline-block;
   border: 1px solid #ccc;
   background-color: #c7c3c3;
