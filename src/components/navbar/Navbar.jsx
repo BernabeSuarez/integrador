@@ -1,12 +1,13 @@
 import React from "react";
 import { IoMenu, IoCartOutline, IoCloseOutline } from "react-icons/io5";
-import { TbUserCircle, TbLogout } from "react-icons/tb";
+import { TbUserCircle, TbLogout, TbUserCheck } from "react-icons/tb";
 import { useDispatch, useSelector } from "react-redux";
 import * as menuActions from "../../redux/menu/menuActions";
 import * as cartActions from "../../redux/carro/cart-actions";
+import * as userActions from "../../redux/user/user-actions";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebaseConfig";
-import { signOut } from "firebase/auth";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 import {
   NavbarContainer,
   MenuContainer,
@@ -20,8 +21,9 @@ import {
 } from "./NavbarElements";
 
 const Navbar = () => {
+  const user = auth.currentUser;
   const fontStyles = { color: "white", fontSize: "1.5rem" };
-
+  const currentUser = useSelector((state) => state.root.user.currentUser);
   const hidden = useSelector((state) => state.root.menu.hidden);
   const quantity = useSelector((state) =>
     state.root.cart.cartItems.reduce(
@@ -29,6 +31,15 @@ const Navbar = () => {
       0
     )
   );
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const uid = user.displayName;
+      dispatch(userActions.setCurrentUser(uid));
+    } else {
+      dispatch(userActions.setCurrentUser(null));
+    }
+  });
 
   const dispatch = useDispatch();
   const handdlerToggle = () => {
@@ -46,7 +57,6 @@ const Navbar = () => {
         // An error happened.
       });
   };
-  const user = auth.currentUser;
 
   return (
     <NavbarContainer>
@@ -63,16 +73,19 @@ const Navbar = () => {
       </MenuContainer>
       <LinksContainer>
         <LoginContainer>
-          <TbUserCircle style={fontStyles} />
           {user ? (
             <UserContainer>
-              <LoginTitle>{user.displayName}</LoginTitle>
+              <TbUserCheck style={fontStyles} />
+              <LoginTitle>{currentUser}</LoginTitle>
               <TbLogout style={fontStyles} onClick={SignOut} />
             </UserContainer>
           ) : (
-            <Link to="login">
-              <LoginTitle>Ingresar</LoginTitle>
-            </Link>
+            <>
+              <TbUserCircle style={fontStyles} />
+              <Link to="login">
+                <LoginTitle>Ingresar</LoginTitle>
+              </Link>
+            </>
           )}
         </LoginContainer>
 

@@ -80,7 +80,7 @@ export const ItemCount = styled.div`
 `;
 
 export const UserContainer = styled.div`
- width: 50%;
+ width: 80%;
  padding: 5%;
  display: flex;
  flex: row;

@@ -80,6 +80,114 @@ export const productsItems = [  //array de objetos de cada producto
             'Gorras',
         price: 3900,
     },
+    {
+        id: 10,
+        name: 'Gorra Rolling Stones',
+        img: 'img/Gorra-4.jpg',
+        section: 'Gorras',
+        description:
+            'Gorras',
+        price: 3900,
+    },
+    {
+        id: 11,
+        name: 'Gorra Ramones',
+        img: 'img/Gorra-5.jpg',
+        section: 'Gorras',
+        description:
+            'Gorras',
+        price: 3900,
+    },
+    {
+        id: 12,
+        name: 'Buzo Ac Dc',
+        img: 'img/Buzo-1.jpg',
+        section: 'Buzos',
+        description:
+            'Buzo Ac Dc',
+        price: 8900,
+    },
+    {
+        id: 13,
+        name: 'Buzo Rolling Stones',
+        img: 'img/Buzo-2.jpg',
+        section: 'Buzos',
+        description:
+            'Buzo Rolling Stones',
+        price: 8900,
+    },
+    {
+        id: 14,
+        name: 'Buzo Rolling Stones',
+        img: 'img/Buzo-3.jpg',
+        section: 'Buzos',
+        description:
+            'Buzo Rolling Stones',
+        price: 8900,
+    },
+    {
+        id: 15,
+        name: 'Borcegos de Cuero',
+        img: 'img/Calzado-4.jpg',
+        section: 'Calzado',
+        description:
+            'Borcegos de cuero',
+        price: 14000,
+    },
+    {
+        id: 16,
+        name: 'Zapatos de cuero',
+        img: 'img/Calzado-5.jpg',
+        section: 'Calzado',
+        description:
+            'Zapatos de cuero',
+        price: 12500,
+    },
+    {
+        id: 17,
+        name: 'Remera Guns and Roses',
+        img: 'img/Remera-4.jpg',
+        section: 'Remeras',
+        description:
+            'Remeras urbanas',
+        price: 5500,
+    },
+    {
+        id: 18,
+        name: 'Remera Urbana',
+        img: 'img/Remera-5.jpg',
+        section: 'Remeras',
+        description:
+            'Remeras urbanas',
+        price: 5500,
+    },
+    {
+        id: 19,
+        name: 'Remera Ramones',
+        img: 'img/Remera-6.jpg',
+        section: 'Remeras',
+        description:
+            'Remeras urbanas',
+        price: 5500,
+    },
+    {
+        id: 20,
+        name: 'Remera Rolling Stones',
+        img: 'img/Remera-7.jpg',
+        section: 'Remeras',
+        description:
+            'Remeras urbanas',
+        price: 5500,
+    },
+    {
+        id: 21,
+        name: 'Remera Guns and Roses',
+        img: 'img/Remera-8.jpg',
+        section: 'Remeras',
+        description:
+            'Remeras urbanas',
+        price: 5500,
+    },
 ];
 
 export const ProductsCategories = [

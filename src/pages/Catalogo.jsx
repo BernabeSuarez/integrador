@@ -44,6 +44,7 @@ const Catalogo = ({ setOpenProduct }) => {
           <option value="Remeras">REMERAS</option>
           <option value="Calzado">CALZADO</option>
           <option value="Gorras">GORRAS</option>
+          <option value="Buzos">BUZOS</option>
           <option value="">CATALOGO COMPLETO</option>
         </Selectmenu>
       </SelectContainer>

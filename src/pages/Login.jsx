@@ -72,7 +72,6 @@ const Login = () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       console.log(user);
-      navigate("/catalogo");
     } catch (error) {
       console.log(error.message);
     }

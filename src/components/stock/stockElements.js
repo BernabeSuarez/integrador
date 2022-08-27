@@ -34,14 +34,14 @@ export const ProductContainer = styled.div`
 `;
 
 export const ProductImg = styled.div`
-  height: 200px;
+  height: 400px;
   padding: 10px;
   font-size: 25px;
   color: #000;
   border-radius: 7px;
   transition-property: box-shadow;
   transition-duration: 0.1s;
-  box-shadow: 0px 0px 2px 0px grey;
+  box-shadow: 0px 5px 14px 0px grey;
   cursor: pointer;
   position: relative;
   overflow: hidden;
