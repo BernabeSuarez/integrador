@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 import Catalogo from "./pages/Catalogo";
 import Register from "./pages/Register";
 import NewsLetter from "./components/newsletter/NewsLetter";
+import Footer from "./components/footer/Footer";
 const App = () => {
   const openProduct = useOpenProduct();
   const compra = useCompra();
@@ -32,8 +33,9 @@ const App = () => {
         </Routes>
         <NewsLetter />
 
-        <h1>Integrador React</h1>
-        <p>Ejercicio Integrador del modulo REACT 2022</p>
+        <h1>Envios a todo el pais</h1>
+        <p>Envios Gratis en compras superiores a $10000</p>
+        <Footer />
       </div>
     </BrowserRouter>
   );
