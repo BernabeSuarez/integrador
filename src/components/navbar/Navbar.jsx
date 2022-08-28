@@ -21,9 +21,9 @@ import {
 } from "./NavbarElements";
 
 const Navbar = () => {
-  const user = auth.currentUser;
   const fontStyles = { color: "white", fontSize: "1.5rem" };
   const currentUser = useSelector((state) => state.root.user.currentUser);
+  const user = currentUser;
   const hidden = useSelector((state) => state.root.menu.hidden);
   const quantity = useSelector((state) =>
     state.root.cart.cartItems.reduce(
@@ -33,6 +33,7 @@ const Navbar = () => {
   );
 
   onAuthStateChanged(auth, (user) => {
+    //ver si hay un usuario logueado, renderizar el nombre
     if (user) {
       const uid = user.displayName;
       dispatch(userActions.setCurrentUser(uid));

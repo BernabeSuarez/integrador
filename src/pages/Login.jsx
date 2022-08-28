@@ -5,6 +5,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import Button from "../components/button/Button";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const LoginContainer = styled.div`
   width: 100%;
@@ -76,6 +77,7 @@ export const Divider = styled.div`
 `;
 
 const Login = () => {
+  const currentUser = useSelector((state) => state.root.user.currentUser);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -90,8 +92,11 @@ const Login = () => {
   };
   const GoogleLog = () => {
     LoginWhitGoogle();
-    navigate("/catalogo");
   };
+
+  if (currentUser) {
+    navigate("/catalogo");
+  }
 
   return (
     <LoginContainer>

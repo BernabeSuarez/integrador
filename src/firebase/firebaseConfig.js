@@ -4,6 +4,7 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyCs-WbJSQGgB_1g4o_OdnuZl5ZS-RsNVaU",
     authDomain: "tienda-online-ed405.firebaseapp.com",
@@ -28,6 +29,7 @@ export const LoginWhitGoogle = () => {  //Autenticar usuario con Google
             //const credential = GoogleAuthProvider.credentialFromResult(result);
 
             // ...
+
         }).catch((error) => {
             // Handle Errors here.
 

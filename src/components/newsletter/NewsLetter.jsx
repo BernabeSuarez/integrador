@@ -73,7 +73,15 @@ const NewsLetter = () => {
   return (
     <NewsContainer>
       <NewsBody>
-        <h3>¡Enterate de las ultimas novedades!</h3>
+        <h3>
+          <span role="img" aria-label="fire">
+            🔥
+          </span>
+          ¡Enterate de las ultimas novedades!
+          <span role="img" aria-label="fire">
+            🔥
+          </span>
+        </h3>
         <p>Suscribite a nuestro newsletter y recibí ofertas exclusivas </p>
         <FormContainer>
           <form action="" onSubmit={submitHandler}>
