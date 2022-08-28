@@ -13,6 +13,8 @@ export const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("img/loginback.jpg");
+  background-size: cover;
 `;
 
 export const FormContainer = styled.div`

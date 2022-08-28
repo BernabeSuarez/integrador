@@ -24,9 +24,9 @@ width: 900px;
   
   @keyframes changeBg{
    0%,100% {background-image: url("img/Calzado-2.jpg");}
-   20% {background-image: url("img/Remera-1.jpg"); }
+   20% {background-image: url("img/Remera-6.jpg"); }
    40% {background-image: url("img/Gorra-2.jpg");}
-   65% {background-image: url("img/Calzado-3.jpg");}
+   65% {background-image: url("img/Buzo-3.jpg");}
    80% {background-image: url("img/Remera-2.jpg");}
  
 }
