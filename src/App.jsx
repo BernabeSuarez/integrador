@@ -13,6 +13,7 @@ import Catalogo from "./pages/Catalogo";
 import Register from "./pages/Register";
 import NewsLetter from "./components/newsletter/NewsLetter";
 import Footer from "./components/footer/Footer";
+import Ofertas from "./pages/Ofertas";
 const App = () => {
   const openProduct = useOpenProduct();
   const compra = useCompra();
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="catalogo" element={<Catalogo {...openProduct} />} />
+          <Route path="ofertas" element={<Ofertas {...openProduct} />} />
         </Routes>
         <NewsLetter />
 
