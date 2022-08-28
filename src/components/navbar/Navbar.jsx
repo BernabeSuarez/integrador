@@ -8,6 +8,7 @@ import * as userActions from "../../redux/user/user-actions";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebaseConfig";
 import { signOut, onAuthStateChanged } from "firebase/auth";
+import toast, { Toaster } from "react-hot-toast";
 import {
   NavbarContainer,
   MenuContainer,
@@ -31,6 +32,9 @@ const Navbar = () => {
       0
     )
   );
+  const notify = () =>
+    //mensaje que aparece al cerrar la sesion toast
+    toast("Se ha cerrado la sesion");
 
   onAuthStateChanged(auth, (user) => {
     //ver si hay un usuario logueado, renderizar el nombre
@@ -52,7 +56,8 @@ const Navbar = () => {
   const SignOut = () => {
     signOut(auth)
       .then(() => {
-        alert("Se ha cerrado sesion"); // accion al cerrar sesion
+        notify();
+        // accion al cerrar sesion
       })
       .catch((error) => {
         // An error happened.
@@ -74,6 +79,7 @@ const Navbar = () => {
       </MenuContainer>
       <LinksContainer>
         <LoginContainer>
+          <Toaster />
           {user ? (
             <UserContainer>
               <TbUserCheck style={fontStyles} />
