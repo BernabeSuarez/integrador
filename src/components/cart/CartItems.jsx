@@ -12,9 +12,20 @@ import {
 } from "./CartItemsElements";
 import { ConfirmButton } from "../modal/ModalElements";
 import { QuantityManage } from "./QuantitySection";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import * as cartActions from "../../redux/carro/cart-actions";
 
 const CartItems = () => {
+  const dispatch = useDispatch();
+  const closeCart = () => {
+    dispatch(cartActions.toggleCartHidden());
+  };
+  const navigate = useNavigate();
+  const Pagar = () => {
+    navigate("/payPage");
+    closeCart();
+  };
   const totalItems = useSelector((state) =>
     state.root.cart.cartItems.reduce(
       (acc, cartItem) => acc + cartItem.price * cartItem.quantity,
@@ -63,7 +74,7 @@ const CartItems = () => {
                 <h4>Total :</h4>
                 <h4>{formatPrice(totalItems)}</h4>
               </div>
-              <ConfirmButton>Confirmar Compra</ConfirmButton>
+              <ConfirmButton onClick={Pagar}>Confirmar Compra</ConfirmButton>
             </CartFooter>
           </CarroContent>
         )}

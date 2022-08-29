@@ -14,6 +14,7 @@ import Register from "./pages/Register";
 import NewsLetter from "./components/newsletter/NewsLetter";
 import Footer from "./components/footer/Footer";
 import Ofertas from "./pages/Ofertas";
+import PayPage from "./pages/PayPage";
 const App = () => {
   const openProduct = useOpenProduct();
   const compra = useCompra();
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="register" element={<Register />} />
           <Route path="catalogo" element={<Catalogo {...openProduct} />} />
           <Route path="ofertas" element={<Ofertas {...openProduct} />} />
+          <Route path="payPage" element={<PayPage />} />
         </Routes>
         <NewsLetter />
 

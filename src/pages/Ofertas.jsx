@@ -55,6 +55,7 @@ const Ofertas = ({ setOpenProduct }) => {
                 </ProductImg>
               );
             }
+            return null;
           })}
         </ProductContainer>
       </StockContain>
