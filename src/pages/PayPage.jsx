@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { formatPrice } from "../utils/formatPrice";
 import { useSelector } from "react-redux";
 import { CarroItem } from "../components/cart/CartItemsElements";
 import Button from "../components/button/Button";
+import CreditCard from "../components/creditCard/CreditCard";
+import { Input } from "../components/UI/Input";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import * as cartActions from "../redux/carro/cart-actions";
 
 const PayContainer = styled.div`
   width: 100%;
@@ -12,16 +17,34 @@ const PayContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 50px 20px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const PayItemsontainer = styled.div`
   width: 60%;
   height: 80vh;
-  margin: auto;
+  margin-top: 40px;
+  padding: 5%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  border: 1px solid black;
+  & input {
+    width: 60%;
+  }
+  & input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    border: none;
+    & input {
+      width: 90%;
+    }
+  }
 `;
 const CartItemsContainer = styled.div`
   width: 35%;
@@ -32,6 +55,9 @@ const CartItemsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const CartItems = styled(CarroItem)`
@@ -51,6 +77,16 @@ const CartItemsTotal = styled(CarroItem)`
 `;
 
 const PayPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const finishBuy = () => {
+    dispatch(cartActions.cleanCart());
+    navigate("/home");
+  };
+  const [numero, setNumero] = useState("");
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
   let envio = 850;
   const cartItems = useSelector((state) => state.root.cart.cartItems);
   const totalItems = useSelector((state) =>
@@ -67,7 +103,36 @@ const PayPage = () => {
 
   return (
     <PayContainer>
-      <PayItemsontainer></PayItemsontainer>
+      <PayItemsontainer>
+        <CreditCard>
+          <h2>{numero}</h2>
+          <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
+            <h3>{name}</h3>
+            <h3 style={{ width: "30%" }}>{date}</h3>
+          </div>
+        </CreditCard>
+        <label htmlFor="numero">Numero</label>
+        <Input
+          type="number"
+          name="numero"
+          placeholder="Numero de la Tarjeta"
+          onChange={(e) => setNumero(e.target.value)}
+        />
+        <label htmlFor="name">Nombre y apellido</label>
+        <Input
+          type="text"
+          name="name"
+          placeholder="Nombre y Apellido"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <label htmlFor="date">Valido Hasta</label>
+        <Input
+          type="text"
+          name="date"
+          placeholder="Valido Hasta"
+          onChange={(e) => setDate(e.target.value)}
+        />
+      </PayItemsontainer>
       <CartItemsContainer>
         <CartItems>
           <h3>Total: </h3>
@@ -81,7 +146,7 @@ const PayPage = () => {
           <h3>Total A Pagar: </h3>
           <h2>{formatPrice(TotalPagar)}</h2>
         </CartItemsTotal>
-        <Button>Pagar</Button>
+        <Button onClick={finishBuy}>Pagar</Button>
       </CartItemsContainer>
     </PayContainer>
   );
