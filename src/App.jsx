@@ -15,6 +15,7 @@ import NewsLetter from "./components/newsletter/NewsLetter";
 import Footer from "./components/footer/Footer";
 import Ofertas from "./pages/Ofertas";
 import PayPage from "./pages/PayPage";
+
 const App = () => {
   const openProduct = useOpenProduct();
   const compra = useCompra();

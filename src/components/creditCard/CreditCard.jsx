@@ -6,7 +6,7 @@ import { GrVisa } from "react-icons/gr";
 const Card = styled.div`
   position: relative;
   width: 400px;
-  height: 250px;
+  min-height: 250px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;

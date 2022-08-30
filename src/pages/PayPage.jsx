@@ -9,6 +9,8 @@ import { Input } from "../components/UI/Input";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import * as cartActions from "../redux/carro/cart-actions";
+import { useModal } from "../hooks/useModal";
+import { ConfirmCompra } from "../components/modal/ConfirmCompra";
 
 const PayContainer = styled.div`
   width: 100%;
@@ -80,10 +82,17 @@ const PayPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const finishBuy = () => {
-    dispatch(cartActions.cleanCart());
-    navigate("/home");
+  const [isOpen, openDialog, closeDialog] = useModal(false); // abre y cierra el modal
+
+  const finallyBuy = () => {
+    openDialog();
+    setTimeout(() => {
+      closeDialog();
+      dispatch(cartActions.cleanCart());
+      navigate("/home");
+    }, 3500);
   };
+
   const [numero, setNumero] = useState("");
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
@@ -102,53 +111,58 @@ const PayPage = () => {
   const TotalPagar = totalItems + envio;
 
   return (
-    <PayContainer>
-      <PayItemsontainer>
-        <CreditCard>
-          <h2>{numero}</h2>
-          <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
-            <h3>{name}</h3>
-            <h3 style={{ width: "30%" }}>{date}</h3>
-          </div>
-        </CreditCard>
-        <label htmlFor="numero">Numero</label>
-        <Input
-          type="number"
-          name="numero"
-          placeholder="Numero de la Tarjeta"
-          onChange={(e) => setNumero(e.target.value)}
-        />
-        <label htmlFor="name">Nombre y apellido</label>
-        <Input
-          type="text"
-          name="name"
-          placeholder="Nombre y Apellido"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label htmlFor="date">Valido Hasta</label>
-        <Input
-          type="text"
-          name="date"
-          placeholder="Valido Hasta"
-          onChange={(e) => setDate(e.target.value)}
-        />
-      </PayItemsontainer>
-      <CartItemsContainer>
-        <CartItems>
-          <h3>Total: </h3>
-          <h3>{formatPrice(totalItems)}</h3>
-        </CartItems>
-        <CartItems>
-          <h3>Envio </h3>
-          <h3>{formatPrice(envio)}</h3>
-        </CartItems>
-        <CartItemsTotal>
-          <h3>Total A Pagar: </h3>
-          <h2>{formatPrice(TotalPagar)}</h2>
-        </CartItemsTotal>
-        <Button onClick={finishBuy}>Pagar</Button>
-      </CartItemsContainer>
-    </PayContainer>
+    <>
+      <ConfirmCompra show={isOpen} />
+      <PayContainer>
+        <PayItemsontainer>
+          <CreditCard>
+            <h2>{numero}</h2>
+            <div
+              style={{ width: "100%", display: "flex", flexDirection: "row" }}
+            >
+              <h3>{name}</h3>
+              <h3 style={{ width: "30%" }}>{date}</h3>
+            </div>
+          </CreditCard>
+          <label htmlFor="numero">Numero</label>
+          <Input
+            type="number"
+            name="numero"
+            placeholder="Numero de la Tarjeta"
+            onChange={(e) => setNumero(e.target.value)}
+          />
+          <label htmlFor="name">Nombre y apellido</label>
+          <Input
+            type="text"
+            name="name"
+            placeholder="Nombre y Apellido"
+            onChange={(e) => setName(e.target.value)}
+          />
+          <label htmlFor="date">Valido Hasta</label>
+          <Input
+            type="text"
+            name="date"
+            placeholder="Valido Hasta"
+            onChange={(e) => setDate(e.target.value)}
+          />
+        </PayItemsontainer>
+        <CartItemsContainer>
+          <CartItems>
+            <h3>Total: </h3>
+            <h3>{formatPrice(totalItems)}</h3>
+          </CartItems>
+          <CartItems>
+            <h3>Envio </h3>
+            <h3>{formatPrice(envio)}</h3>
+          </CartItems>
+          <CartItemsTotal>
+            <h3>Total A Pagar: </h3>
+            <h2>{formatPrice(TotalPagar)}</h2>
+          </CartItemsTotal>
+          <Button onClick={finallyBuy}>Pagar</Button>
+        </CartItemsContainer>
+      </PayContainer>
+    </>
   );
 };
 

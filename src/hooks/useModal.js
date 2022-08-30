@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
-export const useModal = () => {
-    const [show, setShow] = useState(true)
-    return {
-        show,
-        setShow
-    }
+export const useModal = (initialValue = false) => {
+    const [isOpen, setIsOpen] = useState(initialValue)
+
+    const openDialog = () => setIsOpen(true)
+    const closeDialog = () => setIsOpen(false)
+
+    return [isOpen, openDialog, closeDialog]
 }
