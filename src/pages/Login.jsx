@@ -1,89 +1,40 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { auth, LoginWhitGoogle } from "../firebase/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import Button from "../components/button/Button";
-import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useFormik } from "formik";
+import Button from "../components/button/Button";
+import {
+  LoginContainer,
+  FormContainer,
+  Input,
+  GoogleButton,
+  GoogleIcon,
+  ButtonContainer,
+  Divider,
+} from "../styles/LoginElements";
 
-export const LoginContainer = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url("img/loginback.jpg");
-  background-size: cover;
-`;
-
-export const FormContainer = styled.div`
-  width: 450px;
-  height: 450px;
-  margin: auto;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  background-color: white;
-  @media (max-width: 768px) {
-    width: 90%;
-    padding: 5px;
+const validate = (values) => {
+  const errors = {};
+  if (!values.email) {
+    errors.email = "Campo Obligatorio";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = "Ingrese un Email valido";
   }
-`;
-
-export const Input = styled.input`
-  width: 100%;
-  padding: 12px 20px;
-  margin: 2% 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  background-color: #c7c3c3;
-  border-radius: 4px;
-  box-sizing: border-box;
-  @media (max-width: 768px) {
-    width: 90%;
+  if (!values.password) {
+    errors.password = "Campo obligatorio";
+  } else if (values.password.length < 8) {
+    errors.password = "La contraseña debe tener mas de 8 caracteres";
   }
-`;
-
-const GoogleButton = styled(Button)`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  @media (max-width: 768px) {
-    margin: auto;
-  }
-`;
-const GoogleIcon = styled(FcGoogle)`
-  width: 30px;
-  height: 30px;
-`;
-export const ButtonContainer = styled.div`
-  width: 100%;
-  margin: 5% 0;
-  display: flex;
-  flex-direction: row;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-export const Divider = styled.div`
-  display: inline-block;
-  border-bottom: 1px solid #080808;
-  margin-bottom: 2%;
-  width: 100%;
-  height: 15px;
-`;
+  return errors;
+};
 
 const Login = () => {
   const currentUser = useSelector((state) => state.root.user.currentUser);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
   const LoginUser = async () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
@@ -92,6 +43,22 @@ const Login = () => {
       console.log(error.message);
     }
   };
+
+  const formik = useFormik({
+    initialValues: {
+      password: "",
+      email: "",
+    },
+    validate,
+    onSubmit: (values) => {
+      setEmail(values.email);
+      setPassword(values.password);
+      LoginUser();
+      console.log(email);
+      console.log(password);
+    },
+  });
+
   const GoogleLog = () => {
     LoginWhitGoogle();
   };
@@ -105,26 +72,35 @@ const Login = () => {
       <FormContainer>
         <h2>Login</h2>
         <Divider />
-        <form action="">
+        <form onSubmit={formik.handleSubmit}>
           <label>
             Email
             <Input
+              id="email"
               type="email"
               placeholder="Email"
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              showError={formik.errors.email}
             />
+            {formik.errors.email ? <div>{formik.errors.email}</div> : null}
           </label>
           <label>
             Contraseña
             <Input
-              type="text"
+              id="password"
+              type="password"
               placeholder="Contraseña"
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={formik.handleChange}
+              value={formik.values.password}
             />
+            {formik.errors.password ? (
+              <div>{formik.errors.password}</div>
+            ) : null}
           </label>
           <Divider />
           <ButtonContainer>
-            <Button onClick={LoginUser}>Ingresar</Button>
+            <Button type="submit">Ingresar</Button>
             <GoogleButton onClick={GoogleLog}>
               <GoogleIcon />
             </GoogleButton>

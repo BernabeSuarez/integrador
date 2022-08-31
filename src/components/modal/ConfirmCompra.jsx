@@ -2,12 +2,7 @@ import React from "react";
 import { FcOk } from "react-icons/fc";
 import styled from "styled-components";
 
-import {
-  Dialog,
-  DialogBanner,
-  DialogContent,
-  DialogShadow,
-} from "./ModalElements";
+import { Dialog, DialogContent, DialogShadow } from "./ModalElements";
 
 const Icon = styled(FcOk)`
   width: 50px;
