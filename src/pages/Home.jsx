@@ -31,6 +31,11 @@ const HomeContainer = styled.div`
 const HomeContain = styled.div`
   margin: auto;
   padding: 20%;
+
+  @media (max-width: 768px) {
+    width: 70%;
+    padding: 5%;
+  }
 `;
 
 const Title = styled.h2`
@@ -41,6 +46,12 @@ const Title = styled.h2`
   letter-spacing: -0.79px;
   line-height: 6rem;
   animation: FontColor 30s infinite;
+
+  @media (max-width: 768px) {
+    width: 80%;
+    font-size: 5rem;
+    line-height: 4rem;
+  }
 
   @keyframes FontColor {
     0%,
