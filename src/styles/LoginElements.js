@@ -57,6 +57,12 @@ export const Input = styled.input`
       : null}
 `;
 
+export const ErrorContainer = styled.div`
+color: red;
+font-size: 0.8rem;
+font-style: italic;
+`
+
 export const GoogleButton = styled(Button)`
   width: 100%;
   display: flex;

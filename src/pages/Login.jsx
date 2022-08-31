@@ -13,6 +13,7 @@ import {
   GoogleIcon,
   ButtonContainer,
   Divider,
+  ErrorContainer,
 } from "../styles/LoginElements";
 
 const validate = (values) => {
@@ -83,7 +84,9 @@ const Login = () => {
               value={formik.values.email}
               showError={formik.errors.email}
             />
-            {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+            {formik.errors.email ? (
+              <ErrorContainer>{formik.errors.email}</ErrorContainer>
+            ) : null}
           </label>
           <label>
             Contraseña
@@ -95,7 +98,7 @@ const Login = () => {
               value={formik.values.password}
             />
             {formik.errors.password ? (
-              <div>{formik.errors.password}</div>
+              <ErrorContainer>{formik.errors.password}</ErrorContainer>
             ) : null}
           </label>
           <Divider />

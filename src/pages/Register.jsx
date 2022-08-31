@@ -4,6 +4,7 @@ import {
   FormContainer,
   Divider,
   Input,
+  ErrorContainer,
 } from "../styles/LoginElements";
 import Button from "../components/button/Button";
 import { Link, useNavigate } from "react-router-dom";
@@ -26,8 +27,7 @@ const validate = (values) => {
   if (!values.name) {
     errors.name = "Campo obligatorio";
   } else if (values.name.length < 8) {
-    errors.name =
-      "El nombre de usuario tiene que tener mas de 8 caracteres y al menos una mayuscula";
+    errors.name = "El nombre de usuario tiene que tener mas de 8 caracteres";
   }
   return errors;
 };
@@ -88,6 +88,9 @@ const Register = () => {
               value={formik.values.name}
               showError={formik.errors.name}
             />
+            {formik.errors.name ? (
+              <ErrorContainer>{formik.errors.name}</ErrorContainer>
+            ) : null}
           </label>
           <label>
             Email
@@ -99,6 +102,9 @@ const Register = () => {
               value={formik.values.email}
               showError={formik.errors.email}
             />
+            {formik.errors.email ? (
+              <ErrorContainer>{formik.errors.email}</ErrorContainer>
+            ) : null}
           </label>
 
           <label>
@@ -111,6 +117,9 @@ const Register = () => {
               value={formik.values.password}
               showError={formik.errors.password}
             />
+            {formik.errors.password ? (
+              <ErrorContainer>{formik.errors.password}</ErrorContainer>
+            ) : null}
           </label>
           <Divider />
 
