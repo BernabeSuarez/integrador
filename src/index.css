@@ -12,6 +12,12 @@
   font-family: "RockSalt";
   src: local("RockSalt"), url(./fonts/RockSalt.ttf) format("truetype");
 }
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"), url(./fonts/Inter.ttf) format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;

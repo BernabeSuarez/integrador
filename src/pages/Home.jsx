@@ -2,17 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Button from "../components/button/Button";
-import { Banner } from "../components/banner/banner";
-import Logo from "../assets/LogoTiendaInvert.png";
 
 const HomeContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+  font-family: "Inter";
   justify-content: center;
   align-items: center;
   background-size: cover;
   animation: Bg 30s infinite;
+  filter: contrast(80%);
 
   @keyframes Bg {
     0%,
@@ -28,15 +28,43 @@ const HomeContainer = styled.div`
   }
 `;
 
+const HomeContain = styled.div`
+  margin: auto;
+  padding: 20%;
+`;
+
+const Title = styled.h2`
+  width: 80%;
+  margin: auto auto 3rem auto;
+  font-weight: 900;
+  font-size: 8rem;
+  letter-spacing: -0.79px;
+  line-height: 6rem;
+  animation: FontColor 30s infinite;
+
+  @keyframes FontColor {
+    0%,
+    100% {
+      color: white;
+    }
+    33% {
+      color: #706e6e;
+    }
+    66% {
+      color: #020202;
+    }
+  }
+`;
+
 const Home = () => {
   return (
     <>
       <HomeContainer>
         <Link to="/catalogo">
-          <Banner>
-            <img src={Logo} alt="Logo Black" />
-          </Banner>
-          <Button>Empezar A Comprar</Button>
+          <HomeContain>
+            <Title>Vestite como mas te guste</Title>
+            <Button>Empezar A Comprar</Button>
+          </HomeContain>
         </Link>
       </HomeContainer>
     </>

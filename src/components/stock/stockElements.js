@@ -78,6 +78,7 @@ export const H2 = styled.h2`
   bottom: 0;
   left: 0;
   padding: 10px;
+   font-family: "Inter";
   font-size: 20px;
   color: white;
   background-color: #00000070;
