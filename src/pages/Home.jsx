@@ -33,7 +33,7 @@ const HomeContain = styled.div`
   padding: 20%;
 
   @media (max-width: 768px) {
-    width: 70%;
+    width: 100%;
     padding: 5%;
   }
 `;
@@ -49,7 +49,7 @@ const Title = styled.h2`
 
   @media (max-width: 768px) {
     width: 80%;
-    font-size: 5rem;
+    font-size: 4.5rem;
     line-height: 4rem;
   }
 
