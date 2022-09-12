@@ -19,4 +19,18 @@ export const ButtonStyle = styled.button`
     color: ${colorPageBlack};
     border: 1px solid ${colorPageBlack};
   }
+
+   ${(
+  { disabled } //Colorea el input si existe un error
+) =>
+    disabled
+      ? `
+          color: #7e8083;
+          background: linear-gradient(to right top, #7e8083, #92989a, #a8b1b0, #c1c9c4, #dfe1d8);
+          &:hover {
+            border: 2px solid red;
+            color: red;
+          }
+        `
+      : null}
 `;

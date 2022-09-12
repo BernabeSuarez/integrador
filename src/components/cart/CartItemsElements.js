@@ -1,12 +1,19 @@
 import styled from "styled-components";
 import { DialogContent } from "../modal/ModalElements";
 
-
+export const CartContenedor = styled.div`
+display:flex;
+max-height:95%;
+ @media (max-width: 768px) {
+   max-height:90%;
+    
+  }
+`
 export const CarroContent = styled.div`
   display:flex;
   flex-direction: column;
   align-items:center;
-  min-height: 100px;
+  min-height: 110px;
   max-height: 200px; 
   margin-top:3px;
   margin-bottom: 2px;

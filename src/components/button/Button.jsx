@@ -1,8 +1,8 @@
 import React from "react";
 import { ButtonStyle } from "./ButtonStyle";
-const Button = ({ onClick, children }) => {
+const Button = ({ onClick, children, disabled }) => {
   return (
-    <ButtonStyle type="button" onClick={onClick}>
+    <ButtonStyle disabled={disabled} type="button" onClick={onClick}>
       {children}
     </ButtonStyle>
   );

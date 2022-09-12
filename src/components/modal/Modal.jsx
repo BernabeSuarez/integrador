@@ -2,6 +2,7 @@ import React from "react";
 import { formatPrice } from "../../utils/formatPrice";
 import { useDispatch } from "react-redux";
 import * as cartActions from "../../redux/carro/cart-actions";
+import toast, { Toaster } from "react-hot-toast";
 
 import {
   Dialog,
@@ -12,12 +13,17 @@ import {
   DialogShadow,
 } from "./ModalElements";
 
+const addToCartNotify = () => {
+  toast("🗹 Se agrego a tu carrito 🤙");
+};
+
 const ModalContainer = ({ openProduct, setOpenProduct }) => {
   const dispatch = useDispatch();
 
   const AddCart = () => {
     dispatch(cartActions.addItem(openProduct));
     setOpenProduct();
+    addToCartNotify();
   };
 
   const HandlerClose = () => {
@@ -27,6 +33,7 @@ const ModalContainer = ({ openProduct, setOpenProduct }) => {
   return (
     <DialogShadow onClick={HandlerClose}>
       <Dialog>
+        <Toaster />
         <DialogBanner img={openProduct.img}>
           <DialogBannerName>{openProduct.name}</DialogBannerName>
         </DialogBanner>

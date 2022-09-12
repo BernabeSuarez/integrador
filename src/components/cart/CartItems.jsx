@@ -2,6 +2,7 @@ import React from "react";
 import { formatPrice } from "../../utils/formatPrice";
 import Empty from "../../assets/Empty-cart.PNG";
 import {
+  CartContenedor,
   CarroContent,
   CarroContainer,
   CarroItem,
@@ -35,7 +36,7 @@ const CartItems = () => {
   const cartItems = useSelector((state) => state.root.cart.cartItems);
   return (
     <>
-      <CarroContent>
+      <CartContenedor>
         {cartItems.length === 0 ? (
           <EmptyCart>
             <img src={Empty} alt="" style={{ width: "180px" }} />
@@ -78,7 +79,7 @@ const CartItems = () => {
             </CartFooter>
           </CarroContent>
         )}
-      </CarroContent>
+      </CartContenedor>
     </>
   );
 };

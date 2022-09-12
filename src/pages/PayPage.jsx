@@ -24,7 +24,7 @@ const PayContainer = styled.div`
   }
 `;
 
-const PayItemsontainer = styled.div`
+const PayItemsContainer = styled.div`
   width: 60%;
   height: 80vh;
   margin-top: 40px;
@@ -34,11 +34,22 @@ const PayItemsontainer = styled.div`
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  & input {
-    width: 60%;
-  }
-  & input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+
+  & form {
+    min-width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 100%;
+    & input {
+      width: 100%;
+    }
+    & input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    & button {
+      width: 80%;
+    }
   }
   @media (max-width: 768px) {
     width: 100%;
@@ -81,7 +92,7 @@ const CartItemsTotal = styled(CarroItem)`
 const PayPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const [disable, setDisable] = useState(true);
   const [isOpen, openDialog, closeDialog] = useModal(false); // abre y cierra el modal
 
   const finallyBuy = () => {
@@ -114,7 +125,7 @@ const PayPage = () => {
     <>
       <ConfirmCompra show={isOpen} />
       <PayContainer>
-        <PayItemsontainer>
+        <PayItemsContainer>
           <CreditCard>
             <h2>{numero}</h2>
             <div
@@ -124,28 +135,40 @@ const PayPage = () => {
               <h3 style={{ width: "30%" }}>{date}</h3>
             </div>
           </CreditCard>
-          <label htmlFor="numero">Numero</label>
-          <Input
-            type="number"
-            name="numero"
-            placeholder="Numero de la Tarjeta"
-            onChange={(e) => setNumero(e.target.value)}
-          />
-          <label htmlFor="name">Nombre y apellido</label>
-          <Input
-            type="text"
-            name="name"
-            placeholder="Nombre y Apellido"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <label htmlFor="date">Valido Hasta</label>
-          <Input
-            type="text"
-            name="date"
-            placeholder="Valido Hasta"
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </PayItemsontainer>
+          <form>
+            <label htmlFor="numero">Numero</label>
+            <Input
+              id="number"
+              type="number"
+              name="numero"
+              placeholder="Numero de la Tarjeta"
+              onChange={(e) => setNumero(e.target.value)}
+            />
+            <label htmlFor="name">Nombre y apellido</label>
+            <Input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Nombre y Apellido"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <label htmlFor="date">Valido Hasta</label>
+            <Input
+              id="date"
+              type="text"
+              name="date"
+              placeholder="Valido Hasta"
+              onChange={(e) => setDate(e.target.value)}
+            />
+            <Button
+              onClick={() => {
+                setDisable(false);
+              }}
+            >
+              Aceptar
+            </Button>
+          </form>
+        </PayItemsContainer>
         <CartItemsContainer>
           <CartItems>
             <h3>Total: </h3>
@@ -159,7 +182,9 @@ const PayPage = () => {
             <h3>Total A Pagar: </h3>
             <h2>{formatPrice(TotalPagar)}</h2>
           </CartItemsTotal>
-          <Button onClick={finallyBuy}>Pagar</Button>
+          <Button disabled={disable} onClick={finallyBuy}>
+            Pagar
+          </Button>
         </CartItemsContainer>
       </PayContainer>
     </>

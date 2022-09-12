@@ -96,8 +96,8 @@ const Navbar = () => {
           )}
         </LoginContainer>
 
-        <CartIconContainer>
-          <IoCartOutline style={fontStyles} onClick={cartToggle} />
+        <CartIconContainer onClick={cartToggle}>
+          <IoCartOutline style={fontStyles} />
 
           <ItemCount>{quantity}</ItemCount>
         </CartIconContainer>
