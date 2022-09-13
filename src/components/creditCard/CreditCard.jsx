@@ -21,7 +21,10 @@ const Card = styled.div`
     height: 180px;
   }
   & h2 {
+    font-family: "Kredit";
     width: 100%;
+    font-size: 1rem;
+    font-weight: 200;
     color: white;
     letter-spacing: 0.3rem;
     text-align: left;
@@ -31,7 +34,9 @@ const Card = styled.div`
     }
   }
   & h3 {
-    font-size: 1rem;
+    font-family: "Kredit";
+    font-size: 0.9rem;
+    font-weight: 200;
     width: 100%;
     color: white;
     letter-spacing: 0.4rem;
@@ -39,7 +44,7 @@ const Card = styled.div`
     margin: 2%;
     text-transform: uppercase;
     @media (max-width: 768px) {
-      font-size: 0.5rem;
+      font-size: 0.8rem;
       letter-spacing: 0.4rem2;
     }
   }
@@ -77,6 +82,9 @@ const DataContainer = styled.div`
   padding: 6%;
   display: Flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    padding: 10% 5%;
+  }
 `;
 const CreditCard = ({ children }) => {
   return (
