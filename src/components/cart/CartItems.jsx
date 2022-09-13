@@ -79,7 +79,11 @@ const CartItems = () => {
               </div>
               {user ? (
                 <ConfirmButton onClick={Pagar}>Confirmar Compra</ConfirmButton>
-              ) : null}
+              ) : (
+                <h3 style={{ marginTop: "25%" }}>
+                  Registrate o ingresa para comprar
+                </h3>
+              )}
             </CartFooter>
           </CarroContent>
         )}
