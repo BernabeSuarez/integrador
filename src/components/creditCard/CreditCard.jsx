@@ -5,8 +5,8 @@ import { GrVisa } from "react-icons/gr";
 
 const Card = styled.div`
   position: relative;
-  width: 400px;
-  min-height: 250px;
+  width: 380px;
+  min-height: 220px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -46,8 +46,8 @@ const Card = styled.div`
 `;
 
 const Chip = styled(FcSimCardChip)`
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   margin-top: 55px;
   margin-left: 20px;
   @media (max-width: 768px) {
@@ -61,8 +61,8 @@ const Chip = styled(FcSimCardChip)`
 const LogoCard = styled(GrVisa)`
   position: absolute;
   color: white;
-  width: 55px;
-  height: 55px;
+  width: 50px;
+  height: 50px;
   margin-top: 15px;
   margin-left: 320px;
   @media (max-width: 768px) {
@@ -74,7 +74,7 @@ const LogoCard = styled(GrVisa)`
 `;
 const DataContainer = styled.div`
   width: 100%;
-  padding: 8%;
+  padding: 6%;
   display: Flex;
   flex-direction: column;
 `;

@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import * as cartActions from "../redux/carro/cart-actions";
 import { useModal } from "../hooks/useModal";
 import { ConfirmCompra } from "../components/modal/ConfirmCompra";
+import { useFormik } from "formik";
 
 const PayContainer = styled.div`
   width: 100%;
@@ -33,7 +34,6 @@ const PayItemsContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
 
   & form {
     min-width: 60%;
@@ -58,6 +58,11 @@ const PayItemsContainer = styled.div`
       width: 90%;
     }
   }
+`;
+
+const Errors = styled.div`
+  color: red;
+  font-size: 0.7rem;
 `;
 const CartItemsContainer = styled.div`
   width: 35%;
@@ -90,6 +95,30 @@ const CartItemsTotal = styled(CarroItem)`
 `;
 
 const PayPage = () => {
+  const validate = (values) => {
+    const errors = {};
+
+    if (!values.numero) {
+      errors.numero = "Required";
+    } else if (values.numero.length > 13) {
+      errors.numero = "Ingrese una tarjeta valida";
+    }
+
+    if (!values.name) {
+      errors.name = "Required";
+    } else if (values.name.length < 8) {
+      errors.name = "Ingrese nombre y apellido";
+    }
+
+    if (!values.date) {
+      errors.date = "Required";
+    } else if (values.date.length < 4) {
+      errors.date = "Ingrese Una fecha valida";
+    }
+
+    return errors;
+  };
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [disable, setDisable] = useState(true);
@@ -118,7 +147,17 @@ const PayPage = () => {
   if (totalItems >= 10000 || cartItems.length === 0) {
     envio = 0;
   }
-
+  const formik = useFormik({
+    initialValues: {
+      numero: "",
+      name: "",
+      date: "",
+    },
+    validate,
+    onSubmit: (values) => {
+      setDisable(false);
+    },
+  });
   const TotalPagar = totalItems + envio;
 
   return (
@@ -135,38 +174,52 @@ const PayPage = () => {
               <h3 style={{ width: "30%" }}>{date}</h3>
             </div>
           </CreditCard>
-          <form>
+          <form onSubmit={formik.handleSubmit}>
             <label htmlFor="numero">Numero</label>
             <Input
-              id="number"
+              id="numero"
               type="number"
               name="numero"
               placeholder="Numero de la Tarjeta"
-              onChange={(e) => setNumero(e.target.value)}
+              onChange={(e) => {
+                setNumero(e.target.value);
+                formik.handleChange(e);
+              }}
+              onBlur={formik.handleBlur}
+              value={formik.values.numero}
             />
+            {formik.errors.numero ? (
+              <Errors>{formik.errors.numero}</Errors>
+            ) : null}
             <label htmlFor="name">Nombre y apellido</label>
             <Input
               id="name"
               type="text"
               name="name"
               placeholder="Nombre y Apellido"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setName(e.target.value);
+                formik.handleChange(e);
+              }}
+              onBlur={formik.handleBlur}
+              value={formik.values.name}
             />
+            {formik.errors.name ? <Errors>{formik.errors.name}</Errors> : null}
             <label htmlFor="date">Valido Hasta</label>
             <Input
               id="date"
               type="text"
               name="date"
               placeholder="Valido Hasta"
-              onChange={(e) => setDate(e.target.value)}
-            />
-            <Button
-              onClick={() => {
-                setDisable(false);
+              onChange={(e) => {
+                setDate(e.target.value);
+                formik.handleChange(e);
               }}
-            >
-              Aceptar
-            </Button>
+              onBlur={formik.handleBlur}
+              value={formik.values.date}
+            />
+            {formik.errors.date ? <Errors>{formik.errors.date}</Errors> : null}
+            <Button type="submit">Aceptar</Button>
           </form>
         </PayItemsContainer>
         <CartItemsContainer>
