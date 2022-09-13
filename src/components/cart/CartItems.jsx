@@ -27,6 +27,8 @@ const CartItems = () => {
     navigate("/payPage");
     closeCart();
   };
+  const currentUser = useSelector((state) => state.root.user.currentUser);
+  const user = currentUser;
   const totalItems = useSelector((state) =>
     state.root.cart.cartItems.reduce(
       (acc, cartItem) => acc + cartItem.price * cartItem.quantity,
@@ -75,7 +77,9 @@ const CartItems = () => {
                 <h4>Total :</h4>
                 <h4>{formatPrice(totalItems)}</h4>
               </div>
-              <ConfirmButton onClick={Pagar}>Confirmar Compra</ConfirmButton>
+              {user ? (
+                <ConfirmButton onClick={Pagar}>Confirmar Compra</ConfirmButton>
+              ) : null}
             </CartFooter>
           </CarroContent>
         )}
