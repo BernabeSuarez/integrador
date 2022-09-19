@@ -1,14 +1,14 @@
 import React from "react";
 import { IoMenu, IoCartOutline, IoCloseOutline } from "react-icons/io5";
-import { TbUserCircle, TbLogout, TbUserCheck } from "react-icons/tb";
+import { TbUserCircle, TbUserCheck } from "react-icons/tb";
 import { useDispatch, useSelector } from "react-redux";
 import * as menuActions from "../../redux/menu/menuActions";
 import * as cartActions from "../../redux/carro/cart-actions";
 import * as userActions from "../../redux/user/user-actions";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebaseConfig";
-import { signOut, onAuthStateChanged } from "firebase/auth";
-import toast, { Toaster } from "react-hot-toast";
+import { onAuthStateChanged } from "firebase/auth";
+import { Toaster } from "react-hot-toast";
 import {
   NavbarContainer,
   MenuContainer,
@@ -23,6 +23,7 @@ import {
 
 const Navbar = () => {
   const fontStyles = { color: "white", fontSize: "1.5rem" };
+  const fontStylesCheck = { color: "lightGreen", fontSize: "1.5rem" };
   const currentUser = useSelector((state) => state.root.user.currentUser);
   const user = currentUser;
   const hidden = useSelector((state) => state.root.menu.hidden);
@@ -32,9 +33,6 @@ const Navbar = () => {
       0
     )
   );
-  const notify = () =>
-    //mensaje que aparece al cerrar la sesion toast
-    toast("Se ha cerrado la sesion");
 
   onAuthStateChanged(auth, (user) => {
     //ver si hay un usuario logueado, renderizar el nombre
@@ -52,16 +50,6 @@ const Navbar = () => {
   };
   const cartToggle = () => {
     dispatch(cartActions.toggleCartHidden());
-  };
-  const SignOut = () => {
-    signOut(auth)
-      .then(() => {
-        notify();
-        // accion al cerrar sesion
-      })
-      .catch((error) => {
-        // An error happened.
-      });
   };
 
   return (
@@ -82,9 +70,8 @@ const Navbar = () => {
           <Toaster />
           {user ? (
             <UserContainer>
-              <TbUserCheck style={fontStyles} />
+              <TbUserCheck style={fontStylesCheck} />
               <LoginTitle>{currentUser}</LoginTitle>
-              <TbLogout style={fontStyles} onClick={SignOut} />
             </UserContainer>
           ) : (
             <>

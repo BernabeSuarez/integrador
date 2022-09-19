@@ -36,12 +36,16 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   const LoginUser = async () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       console.log(user);
     } catch (error) {
       console.log(error.message);
+    }
+    if (currentUser) {
+      navigate("/catalogo");
     }
   };
 
@@ -103,7 +107,9 @@ const Login = () => {
           </label>
           <Divider />
           <ButtonContainer>
-            <Button type="submit">Ingresar</Button>
+            <Button type="submit" onClick={LoginUser}>
+              Ingresar
+            </Button>
             <GoogleButton onClick={GoogleLog}>
               <GoogleIcon />
             </GoogleButton>

@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import * as menuActions from "../../redux/menu/menuActions";
 import { Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/firebaseConfig";
+import toast from "react-hot-toast";
 
 const MenuNavContainer = styled.div`
   position: fixed;
@@ -34,6 +37,15 @@ const MenuNav = styled.div`
     margin: 8% auto 2%;
     color: black;
   }
+  & h3 {
+    font-family: "WorkSalt";
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin: 8% auto 2%;
+    color: black;
+    cursor: pointer;
+  }
   & a:hover {
     color: #f34100;
   }
@@ -41,13 +53,43 @@ const MenuNav = styled.div`
     width: 100%;
   }
 `;
+const SignOutContent = styled.div`
+  margin-top: 80%;
+  & h3 {
+    font-family: "WorkSalt";
+    letter-spacing: 0.1rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    margin: 8% auto 2%;
+    color: black;
+    cursor: pointer;
+  }
+`;
 
 const NavbarMenu = () => {
+  const currentUser = useSelector((state) => state.root.user.currentUser);
+  const user = currentUser;
   const dispatch = useDispatch();
   const handdlerToggle = () => {
     dispatch(menuActions.toggleMenuHidden());
   };
   const hidden = useSelector((state) => state.root.menu.hidden);
+
+  const notify = () =>
+    //mensaje que aparece al cerrar la sesion toast
+    toast("Se ha cerrado la sesion");
+
+  const SignOut = () => {
+    signOut(auth)
+      .then(() => {
+        notify();
+        // accion al cerrar sesion
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
   return (
     <MenuNavContainer show={hidden}>
       <MenuNav show={hidden}>
@@ -60,6 +102,11 @@ const NavbarMenu = () => {
         <Link to="ofertas" onClick={handdlerToggle}>
           Ofertas
         </Link>
+        {user ? (
+          <SignOutContent>
+            <h3 onClick={SignOut}>Cerrar Sesion</h3>{" "}
+          </SignOutContent>
+        ) : null}
       </MenuNav>
     </MenuNavContainer>
   );
